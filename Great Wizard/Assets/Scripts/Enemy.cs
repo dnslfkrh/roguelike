@@ -4,18 +4,49 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed;
+    [SerializeField]
+    private string enemyName; // 인스펙터에서 설정할 캐릭터명 (Brook, Jinbe, Usopp, Franky)
+
     public Rigidbody2D target;
+    private bool isLive = true;
+    private Rigidbody2D rigid;
+    private SpriteRenderer spriter;
 
-    bool isLive = true; // 죽으면 캡슐 콜라이더 끄기
+    // 스탯 변수들
+    private float moveSpeed;
+    private float hp;
+    private float attackPower;
 
-    Rigidbody2D rigid;
-    SpriteRenderer spriter;
+    private EnemyStatsManager statsManager;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
+
+        statsManager = FindObjectOfType<EnemyStatsManager>();
+        if (statsManager == null)
+        {
+            Debug.LogError("Scene에 EnemyStatsManager가 없습니다!");
+            return;
+        }
+
+        InitializeStats();
+    }
+
+    private void InitializeStats()
+    {
+        if (string.IsNullOrEmpty(enemyName))
+        {
+            Debug.LogError("Enemy Name이 설정되지 않았습니다.");
+            return;
+        }
+
+        moveSpeed = statsManager.GetMoveSpeed(enemyName);
+        hp = statsManager.GetHP(enemyName);
+        attackPower = statsManager.GetAttackPower(enemyName);
+
+        Debug.Log($"{enemyName} 스탯 - 이동속도: {moveSpeed}, 체력: {hp}, 공격력: {attackPower}");
     }
 
     private void FixedUpdate()
@@ -26,7 +57,7 @@ public class Enemy : MonoBehaviour
         }
 
         Vector2 dirVec = target.position - rigid.position;
-        Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
+        Vector2 nextVec = dirVec.normalized * moveSpeed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
         rigid.velocity = Vector2.zero;
     }
@@ -37,7 +68,29 @@ public class Enemy : MonoBehaviour
         {
             return;
         }
-
         spriter.flipX = target.position.x < rigid.position.x;
     }
+
+    public void Die()
+    {
+        isLive = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (!isLive)
+            return;
+
+        hp -= damage;
+
+        if (hp <= 0)
+        {
+            Die();
+        }
+    }
+
+    public float GetHP() => hp;
+    public float GetAttackPower() => attackPower;
+    public float GetMoveSpeed() => moveSpeed;
 }

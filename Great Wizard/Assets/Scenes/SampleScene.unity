@@ -4426,7 +4426,7 @@ GameObject:
   - component: {fileID: 497594786}
   - component: {fileID: 497594785}
   m_Layer: 0
-  m_Name: Enemy 3
+  m_Name: Brook
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4456,7 +4456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbb0c1323ad3f741ae12ccc8e8dff82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  enemyName: Brook
   target: {fileID: 986323498}
 --- !u!70 &497594787
 CapsuleCollider2D:
@@ -4585,7 +4585,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -4801,7 +4801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbb0c1323ad3f741ae12ccc8e8dff82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  enemyName: Jinbe
   target: {fileID: 986323498}
 --- !u!70 &774953412
 CapsuleCollider2D:
@@ -4930,7 +4930,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &795289891
 GameObject:
@@ -4947,7 +4947,7 @@ GameObject:
   - component: {fileID: 795289896}
   - component: {fileID: 795289897}
   m_Layer: 0
-  m_Name: 'Enemy 0 '
+  m_Name: Usopp
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5080,7 +5080,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &795289896
 MonoBehaviour:
@@ -5094,7 +5094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbb0c1323ad3f741ae12ccc8e8dff82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  enemyName: Usopp
   target: {fileID: 986323498}
 --- !u!114 &795289897
 MonoBehaviour:
@@ -5123,7 +5123,7 @@ GameObject:
   - component: {fileID: 909770159}
   - component: {fileID: 909770160}
   m_Layer: 0
-  m_Name: Enemy 1
+  m_Name: Franky
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5256,7 +5256,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &909770159
 MonoBehaviour:
@@ -5270,7 +5270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bbb0c1323ad3f741ae12ccc8e8dff82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  enemyName: Franky
   target: {fileID: 986323498}
 --- !u!114 &909770160
 MonoBehaviour:
@@ -5386,7 +5386,7 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 532098656}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &986323497
 CapsuleCollider2D:
@@ -9831,6 +9831,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82755e8bbf1a18b47924850715f8daa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1835159329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1835159331}
+  - component: {fileID: 1835159330}
+  m_Layer: 0
+  m_Name: EnemyStatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1835159330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835159329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8712f778f048a8a40908b9c82f329978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1835159331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835159329}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.366358, y: -8.941438, z: -0.2714186}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1940079944
 GameObject:
   m_ObjectHideFlags: 0
