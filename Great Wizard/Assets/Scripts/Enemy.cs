@@ -12,10 +12,11 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rigid;
     private SpriteRenderer spriter;
 
-    // 스탯 변수들
     private float moveSpeed;
     private float hp;
     private float attackPower;
+    private float attackSpeed;
+    private float lastAttackTime;
 
     private EnemyStatsManager statsManager;
 
@@ -23,7 +24,10 @@ public class Enemy : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
+    }
 
+    private void Start()
+    {
         statsManager = FindObjectOfType<EnemyStatsManager>();
         if (statsManager == null)
         {
@@ -34,19 +38,13 @@ public class Enemy : MonoBehaviour
         InitializeStats();
     }
 
+
     private void InitializeStats()
     {
-        if (string.IsNullOrEmpty(enemyName))
-        {
-            Debug.LogError("Enemy Name이 설정되지 않았습니다.");
-            return;
-        }
-
         moveSpeed = statsManager.GetMoveSpeed(enemyName);
         hp = statsManager.GetHP(enemyName);
         attackPower = statsManager.GetAttackPower(enemyName);
-
-        Debug.Log($"{enemyName} 스탯 - 이동속도: {moveSpeed}, 체력: {hp}, 공격력: {attackPower}");
+        attackSpeed = statsManager.GetAttackSpeed(enemyName);
     }
 
     private void FixedUpdate()
@@ -69,6 +67,26 @@ public class Enemy : MonoBehaviour
             return;
         }
         spriter.flipX = target.position.x < rigid.position.x;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!isLive) return;
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (Time.time >= lastAttackTime + attackSpeed)
+            {
+                PlayerHP playerHP = collision.gameObject.GetComponent<PlayerHP>();
+                if (playerHP != null)
+                {
+                    playerHP.TakeDamage(attackPower);
+                    lastAttackTime = Time.time;
+
+                    Debug.Log($"{enemyName}가 플레이어에게 {attackPower} 데미지를 입혔습니다.");
+                }
+            }
+        }
     }
 
     public void Die()
