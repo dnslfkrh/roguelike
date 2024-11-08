@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -7,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private string enemyName; // 인스펙터에서 설정할 캐릭터명 (Brook, Jinbe, Usopp, Franky)
 
-    public Rigidbody2D target;
+    private Rigidbody2D target;
     private bool isLive = true;
     private Rigidbody2D rigid;
     private SpriteRenderer spriter;
@@ -69,9 +70,17 @@ public class Enemy : MonoBehaviour
         spriter.flipX = target.position.x < rigid.position.x;
     }
 
+    private void OnEnable()
+    {
+        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();    
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!isLive) return;
+        if (!isLive)
+        {
+            return;
+        }
 
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -98,7 +107,9 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (!isLive)
+        {
             return;
+        }
 
         hp -= damage;
 
