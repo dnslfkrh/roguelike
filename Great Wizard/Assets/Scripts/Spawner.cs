@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public float spawnInterval = 0.3f;
     public Transform[] spawnPoints;
     float timer;
 
@@ -16,7 +17,7 @@ public class Spawner : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > 0.2f)
+        if (timer > spawnInterval)
         {
             Spawn();
             timer = 0f;

@@ -18,7 +18,6 @@ public class PlayerHP : MonoBehaviour
     private void Awake()
     {
         currentHP = maxHP;
-        // 초기 체력 상태 이벤트 발생
         UpdateHealthBar();
     }
 

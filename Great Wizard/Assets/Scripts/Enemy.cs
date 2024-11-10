@@ -32,13 +32,11 @@ public class Enemy : MonoBehaviour
         statsManager = FindObjectOfType<EnemyStatsManager>();
         if (statsManager == null)
         {
-            Debug.LogError("Scene에 EnemyStatsManager가 없습니다!");
             return;
         }
 
         InitializeStats();
     }
-
 
     private void InitializeStats()
     {
@@ -72,7 +70,9 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();    
+        isLive = true;
+        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
+        GetComponent<CapsuleCollider2D>().enabled = true;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -91,17 +91,9 @@ public class Enemy : MonoBehaviour
                 {
                     playerHP.TakeDamage(attackPower);
                     lastAttackTime = Time.time;
-
-                    Debug.Log($"{enemyName}가 플레이어에게 {attackPower} 데미지를 입혔습니다.");
                 }
             }
         }
-    }
-
-    public void Die()
-    {
-        isLive = false;
-        GetComponent<CapsuleCollider2D>().enabled = false;
     }
 
     public void TakeDamage(float damage)
@@ -117,6 +109,13 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void Die()
+    {
+        isLive = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        gameObject.SetActive(false);
     }
 
     public float GetHP() => hp;

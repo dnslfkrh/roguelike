@@ -24,7 +24,6 @@ public class WeaponManager : MonoBehaviour
         GameObject weapon = Instantiate(weaponPrefabs[prefabIndex]);
 
         float angle = 360f / initialWeaponCount * index;
-        float distanceFromPlayer = 1.0f;
 
         weapon.transform.SetParent(transform);
         Weapon weaponComponent = weapon.GetComponent<Weapon>();

@@ -5,12 +5,14 @@ public class Player : MonoBehaviour
     public WeaponManager weaponManager;
     public Vector2 inputVec;
     public float speed;
+    public float attackDamage;
 
     Rigidbody2D rigid;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        attackDamage = 10.0f;
     }
     private void Start()
     {
