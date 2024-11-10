@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Brook
-  target: {fileID: 0}
 --- !u!114 &2720535349627766377
 MonoBehaviour:
   m_ObjectHideFlags: 0

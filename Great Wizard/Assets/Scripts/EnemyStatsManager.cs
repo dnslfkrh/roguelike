@@ -28,10 +28,10 @@ public class EnemyStatsManager : MonoBehaviour
 
     private void InitializeEnemyStats()
     {
-        enemyStatsDictionary.Add("Brook", new EnemyStats(70f, 10f, 2f, 1.2f));
-        enemyStatsDictionary.Add("Jinbe", new EnemyStats(90f, 25f, 1f, 0.8f));
-        enemyStatsDictionary.Add("Usopp", new EnemyStats(65f, 15f, 1.1f, 1.5f));
-        enemyStatsDictionary.Add("Franky", new EnemyStats(85f, 20f, 0.7f, 0.7f));
+        enemyStatsDictionary.Add("Brook", new EnemyStats(70f, 20f, 2f, 1.2f));
+        enemyStatsDictionary.Add("Jinbe", new EnemyStats(90f, 40f, 1f, 0.8f));
+        enemyStatsDictionary.Add("Usopp", new EnemyStats(65f, 30f, 1.1f, 1.5f));
+        enemyStatsDictionary.Add("Franky", new EnemyStats(85f, 25f, 0.7f, 0.7f));
     }
 
     public EnemyStats GetEnemyStats(string enemyName)

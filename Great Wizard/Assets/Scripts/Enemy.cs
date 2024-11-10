@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     private float attackPower;
     private float attackSpeed;
     private float lastAttackTime;
+    private float knockbackForce = 5f;
+    private bool isKnockedBack = false;
 
     private EnemyStatsManager statsManager;
 
@@ -48,7 +50,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isLive)
+        if (!isLive || isKnockedBack)
         {
             return;
         }
@@ -104,11 +106,28 @@ public class Enemy : MonoBehaviour
         }
 
         hp -= damage;
+        StartCoroutine(Knockback());
 
         if (hp <= 0)
         {
             Die();
         }
+    }
+
+    private IEnumerator Knockback()
+    {
+        isKnockedBack = true;
+        rigid.velocity = Vector2.zero;
+
+        Vector2 playerPosition = GameManager.Instance.player.transform.position;
+        Vector2 dirVec = (Vector2)transform.position - playerPosition;
+
+        rigid.AddForce(dirVec.normalized * knockbackForce, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(0.2f);
+
+        rigid.velocity = Vector2.zero;
+        isKnockedBack = false;
     }
 
     public void Die()
