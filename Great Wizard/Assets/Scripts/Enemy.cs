@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
+        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
     }
 
     private void Start()
@@ -73,7 +74,6 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         isLive = true;
-        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
         GetComponent<CapsuleCollider2D>().enabled = true;
     }
 

@@ -29,6 +29,8 @@ public class Weapon : MonoBehaviour
             float angle = startAngle + (Time.time * rotationSpeed);
             Vector3 offset = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad) * distanceFromPlayer, Mathf.Sin(angle * Mathf.Deg2Rad) * distanceFromPlayer, 0);
             transform.position = player.position + offset;
+
+            transform.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
 
