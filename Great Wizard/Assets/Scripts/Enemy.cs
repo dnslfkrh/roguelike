@@ -25,9 +25,9 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
-        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
     }
 
     private void Start()
