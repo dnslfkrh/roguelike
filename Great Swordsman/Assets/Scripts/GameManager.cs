@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Info")]
     public float gameTime;
-    public float maxGameTime = 20f;
+    public float maxGameTime = 300f;
 
     public static GameManager Instance
     {
@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
         if (exp == nextExp[level])
         {
             level++;
-
             exp = 0;
         }
     }
