@@ -132,6 +132,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        GameManager.Instance.GetExp();
         isLive = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
         gameObject.SetActive(false);
