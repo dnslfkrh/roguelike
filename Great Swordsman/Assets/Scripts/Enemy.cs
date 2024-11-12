@@ -28,15 +28,7 @@ public class Enemy : MonoBehaviour
         target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
-    }
-
-    private void Start()
-    {
         statsManager = FindObjectOfType<EnemyStatsManager>();
-        if (statsManager == null)
-        {
-            return;
-        }
 
         InitializeStats();
     }
@@ -49,7 +41,7 @@ public class Enemy : MonoBehaviour
         attackSpeed = statsManager.GetAttackSpeed(enemyName);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!isLive || isKnockedBack)
         {
@@ -74,7 +66,15 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         isLive = true;
+        isKnockedBack = false;
         GetComponent<CapsuleCollider2D>().enabled = true;
+
+        InitializeStats();
+
+        if (rigid != null)
+        {
+            rigid.velocity = Vector2.zero;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
