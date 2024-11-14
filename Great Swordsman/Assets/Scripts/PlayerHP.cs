@@ -21,6 +21,16 @@ public class PlayerHP : MonoBehaviour
         UpdateHealthBar();
     }
 
+    public void IncreaseHP(float value)
+    {
+        Debug.Log("체력이 오를까?" + maxHP);
+        Debug.Log("체력이 오를까?" + currentHP);
+        maxHP += value;
+        currentHP += value;
+        Debug.Log("아 체력이 올랐다" + maxHP);
+        Debug.Log("아 체력이 올랐다" + currentHP);
+    }
+
     public void TakeDamage(float damage)
     {
         if (isDead)
