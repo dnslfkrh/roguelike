@@ -23,12 +23,12 @@ public class PlayerHP : MonoBehaviour
 
     public void IncreaseHP(float value)
     {
-        Debug.Log("체력이 오를까?" + maxHP);
-        Debug.Log("체력이 오를까?" + currentHP);
+        Debug.Log("전 최대 체력" + maxHP);
+        Debug.Log("전 현재 체력" + currentHP);
         maxHP += value;
         currentHP += value;
-        Debug.Log("아 체력이 올랐다" + maxHP);
-        Debug.Log("아 체력이 올랐다" + currentHP);
+        Debug.Log("후 최대 체력" + maxHP);
+        Debug.Log("후 현재 체력" + currentHP);
     }
 
     public void TakeDamage(float damage)
@@ -39,7 +39,7 @@ public class PlayerHP : MonoBehaviour
         }
 
         currentHP = Mathf.Max(0f, currentHP - damage);
-        Debug.Log($"Player took {damage} damage. Current health: {currentHP}");
+        Debug.Log($"현재 체력: {currentHP}");
 
         UpdateHealthBar();
 

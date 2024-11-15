@@ -39,8 +39,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Info")]
     public int level;
-    public int exp;
-    public int[] nextExp = { 3, 5, 10, 100, 150, 210, 280, 360, 450, 600 };
+    public int exp = 0;
+    public int[] nextExp = { 10, 20, 30, 60, 150, 210, 280, 360, 450, 600 };
 
     private void Update()
     {
@@ -87,10 +87,10 @@ public class GameManager : MonoBehaviour
         // 이게 증강 선택할 때마다 실행돼서 중복 증강이 나옴.. 해결 필요
         List<string> allUpgrades = new List<string> {
             "HP +100",
-            "LigeSteal",
-            "A",
-            "AWDWAD",
-            "ADWDAWd",
+            "test A",
+            "test B",
+            "test C",
+            "test D",
         };
 
         List<string> selectedUpgrades = new List<string>();
