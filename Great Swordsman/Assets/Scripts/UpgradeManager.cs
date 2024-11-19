@@ -11,8 +11,8 @@ public class UpgradeManager : MonoBehaviour
     private Button[] optionButtons;
     private static List<string> availableUpgrades = new List<string>
     {
-        "HP +100",
-        "Test A",
+        "Current HP +100",
+        "Max HP +200",
         "Test B",
         "Test C",
         "Test D",
@@ -20,6 +20,22 @@ public class UpgradeManager : MonoBehaviour
         "Test F"
     };
     private List<string> selectedPreviousUpgrades = new List<string>();
+
+    private void ApplyUpgrade(string upgrade)
+    {
+        switch (upgrade)
+        {
+            case "Current HP +100":
+                playerHP.IncreaseHP("currentHP", 100);
+                break;
+
+            case "Max HP +200":
+                playerHP.IncreaseHP("maxHP", 200);
+                break;
+        }
+        availableUpgrades.Remove(upgrade);
+        CloseLevelUpUI();
+    }
 
     public void ShowLevelUpOptions()
     {
@@ -41,7 +57,6 @@ public class UpgradeManager : MonoBehaviour
         optionButtons = levelUpPanelInstance.GetComponentsInChildren<Button>();
         if (optionButtons == null || optionButtons.Length == 0)
         {
-            Debug.LogError("레벨업 패널에 버튼이 없습니다");
             return;
         }
         for (int i = 0; i < optionButtons.Length; i++)
@@ -94,19 +109,6 @@ public class UpgradeManager : MonoBehaviour
                 buttonTextTMP.text = text;
             }
         }
-    }
-
-    private void ApplyUpgrade(string upgrade)
-    {
-        switch (upgrade)
-        {
-            case "HP +100":
-                playerHP.IncreaseHP(100);
-                break;
-                // 추가 업그레이드 케이스 여기에 추가
-        }
-        availableUpgrades.Remove(upgrade);
-        CloseLevelUpUI();
     }
 
     private void CloseLevelUpUI()

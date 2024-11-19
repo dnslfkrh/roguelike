@@ -21,14 +21,21 @@ public class PlayerHP : MonoBehaviour
         UpdateHealthBar();
     }
 
-    public void IncreaseHP(float value)
+    public void IncreaseHP(string type, float value)
     {
-        Debug.Log("전 최대 체력" + maxHP);
-        Debug.Log("전 현재 체력" + currentHP);
-        maxHP += value;
-        currentHP += value;
-        Debug.Log("후 최대 체력" + maxHP);
-        Debug.Log("후 현재 체력" + currentHP);
+        if (type == "currentHP")
+        {
+            if (currentHP + value > maxHP)
+            {
+                currentHP = maxHP;
+                return;
+            }
+            currentHP += value;
+        }
+        else if (type == "maxHP")
+        {
+            maxHP += value;
+        }
     }
 
     public void TakeDamage(float damage)
