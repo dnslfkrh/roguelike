@@ -30,4 +30,10 @@ public class Player : MonoBehaviour
         Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
     }
+
+    public void IncreaseAttackDamage(float value)
+    {
+        attackDamage += value;
+        Debug.Log("공격력 증가: " + attackDamage);
+    }
 }

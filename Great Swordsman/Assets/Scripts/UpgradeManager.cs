@@ -5,21 +5,31 @@ using TMPro;
 
 public class UpgradeManager : MonoBehaviour
 {
-    [SerializeField] private GameObject levelUpPanelPrefab;
-    [SerializeField] private PlayerHP playerHP;
+    [SerializeField]
+    private GameObject levelUpPanelPrefab;
+
     private GameObject levelUpPanelInstance;
+    private Player player;
+    private PlayerHP playerHP;
     private Button[] optionButtons;
+
     private static List<string> availableUpgrades = new List<string>
     {
         "Current HP +100",
         "Max HP +200",
-        "Test B",
+        "Player Damage +5",
         "Test C",
         "Test D",
         "Test E",
         "Test F"
     };
     private List<string> selectedPreviousUpgrades = new List<string>();
+
+    private void Awake()
+    {
+        player = GameManager.Instance.player;
+        playerHP = GameManager.Instance.playerHP;
+    }
 
     private void ApplyUpgrade(string upgrade)
     {
@@ -31,6 +41,10 @@ public class UpgradeManager : MonoBehaviour
 
             case "Max HP +200":
                 playerHP.IncreaseHP("maxHP", 200);
+                break;
+
+            case "Player Damage +5":
+                player.IncreaseAttackDamage(5);
                 break;
         }
         availableUpgrades.Remove(upgrade);
