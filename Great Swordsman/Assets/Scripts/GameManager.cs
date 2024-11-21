@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public PlayerHP playerHP;
     public PoolManager pool;
     public UpgradeManager upgradeManager;
+    public WeaponManager weaponManager;
 
     [Header("Game Info")]
     public float gameTime;

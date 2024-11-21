@@ -5647,7 +5647,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUpPanelPrefab: {fileID: 8206973979803269039, guid: 583fe345a61917d4292764457f0aa3d8, type: 3}
-  playerHP: {fileID: 986323499}
 --- !u!4 &971788729
 Transform:
   m_ObjectHideFlags: 0
@@ -6227,6 +6226,7 @@ MonoBehaviour:
   playerHP: {fileID: 986323499}
   pool: {fileID: 88695089}
   upgradeManager: {fileID: 971788728}
+  weaponManager: {fileID: 2109008157}
   gameTime: 0
   maxGameTime: 300
   level: 0

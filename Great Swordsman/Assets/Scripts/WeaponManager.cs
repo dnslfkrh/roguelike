@@ -14,38 +14,57 @@ public class WeaponManager : MonoBehaviour
     {
         for (int i = 0; i < initialWeaponCount; i++)
         {
-            CreateWeapon(i, playerTransform);
+            float angleStep = 360f / initialWeaponCount;
+            float angle = angleStep * i;
+
+            CreateWeapon(angle, playerTransform);
         }
     }
 
-    public void CreateWeapon(int index, Transform playerTransform)
+    public void CreateWeapon(float angle, Transform playerTransform)
     {
-        int prefabIndex = index % weaponPrefabs.Length;
-        GameObject weapon = Instantiate(weaponPrefabs[prefabIndex]);
+        int prefabIndex = weapons.Count % weaponPrefabs.Length;
+        if (weaponPrefabs.Length == 0 || weaponPrefabs[prefabIndex] == null)
+        {
+            return;
+        }
 
-        float angle = 360f / initialWeaponCount * index;
+        GameObject weapon = Instantiate(weaponPrefabs[prefabIndex]);
 
         weapon.transform.SetParent(transform);
         Weapon weaponComponent = weapon.GetComponent<Weapon>();
+        if (weaponComponent == null)
+        {
+            Destroy(weapon);
+            return;
+        }
+
         weaponComponent.SetPlayer(playerTransform);
-        weaponComponent.SetInitialAngle(angle);
+        weaponComponent.SetInitialAngle(angle); 
 
         weapons.Add(weapon);
     }
 
-    public void ChangeWeapon(int index, int weaponPrefabIndex)
+    public void IncreaseWeaponCount()
     {
-        if (index < weapons.Count && weaponPrefabIndex < weaponPrefabs.Length)
+        Weapon playerWeapon = weapons.Count > 0 ? weapons[0].GetComponent<Weapon>() : null;
+        Transform playerTransform = playerWeapon != null ? playerWeapon.player : null;
+
+        foreach (var weapon in weapons)
         {
-            Destroy(weapons[index]);
-            CreateWeapon(weaponPrefabIndex, weapons[index].GetComponent<Weapon>().player);
+            weapon.SetActive(false);
+        }
+
+        float totalWeapons = weapons.Count + 1;
+        float angleStep = 360f / totalWeapons;
+
+        for (int i = 0; i < totalWeapons; i++)
+        {
+            float angle = angleStep * i;
+            CreateWeapon(angle, playerTransform);
         }
     }
 
-    public void IncreaseWeaponCount()
-    {
-        CreateWeapon(weapons.Count, weapons[0].GetComponent<Weapon>().player);
-    }
 
     public void DecreaseWeaponCount()
     {
@@ -53,6 +72,16 @@ public class WeaponManager : MonoBehaviour
         {
             Destroy(weapons[weapons.Count - 1]);
             weapons.RemoveAt(weapons.Count - 1);
+        }
+    }
+
+
+    public void ChangeWeapon(int index, int weaponPrefabIndex)
+    {
+        if (index < weapons.Count && weaponPrefabIndex < weaponPrefabs.Length)
+        {
+            Destroy(weapons[index]);
+            CreateWeapon(weaponPrefabIndex, weapons[index].GetComponent<Weapon>().player);
         }
     }
 }

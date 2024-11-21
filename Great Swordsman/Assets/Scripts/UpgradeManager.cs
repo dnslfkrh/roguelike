@@ -11,6 +11,7 @@ public class UpgradeManager : MonoBehaviour
     private GameObject levelUpPanelInstance;
     private Player player;
     private PlayerHP playerHP;
+    private WeaponManager weaponManager;
     private Button[] optionButtons;
 
     private static List<string> availableUpgrades = new List<string>
@@ -18,8 +19,8 @@ public class UpgradeManager : MonoBehaviour
         "Current HP +100",
         "Max HP +200",
         "Player Damage +5",
-        "Test C",
-        "Test D",
+        "Player Speed +",
+        "Add Sword",
         "Test E",
         "Test F"
     };
@@ -29,6 +30,7 @@ public class UpgradeManager : MonoBehaviour
     {
         player = GameManager.Instance.player;
         playerHP = GameManager.Instance.playerHP;
+        weaponManager = GameManager.Instance.weaponManager;
     }
 
     private void ApplyUpgrade(string upgrade)
@@ -46,6 +48,15 @@ public class UpgradeManager : MonoBehaviour
             case "Player Damage +5":
                 player.IncreaseAttackDamage(5);
                 break;
+
+            case "Player Speed +":
+                player.IncreaseMoveSpeed(1);
+                break;
+
+            case "Add Sword":
+                weaponManager.IncreaseWeaponCount();
+                break;
+
         }
         availableUpgrades.Remove(upgrade);
         CloseLevelUpUI();

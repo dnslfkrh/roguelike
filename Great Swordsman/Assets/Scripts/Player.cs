@@ -36,4 +36,11 @@ public class Player : MonoBehaviour
         attackDamage += value;
         Debug.Log("공격력 증가: " + attackDamage);
     }
+
+    public void IncreaseMoveSpeed(float value)
+    {
+        Debug.Log("증가 전 이동 속도: " + speed);
+        speed += value;
+        Debug.Log("이동 속도 증가: " +  speed);
+    }
 }
