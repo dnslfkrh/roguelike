@@ -11,16 +11,11 @@ public enum WeaponType
 
 public class Weapon : MonoBehaviour
 {
-    private float distanceFromPlayer;
+    private float distanceFromPlayer = 2f;
     public WeaponType weaponType;
     public Transform player;
     public float rotationSpeed = 100f;
     private float startAngle;
-
-    private void Start()
-    {
-        distanceFromPlayer = 2f;
-    }
 
     private void Update()
     {
@@ -32,6 +27,23 @@ public class Weapon : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
+    }
+
+    public void ChangeRotationSpeed(string type, int value)
+    {
+        if (type == "+")
+        {
+            rotationSpeed += value;
+        }
+        else if (type == "/")
+        {
+            rotationSpeed /= value;
+        }
+    }
+
+    public void ChangeDistanceFromPlayer(float value)
+    {
+        distanceFromPlayer += value;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

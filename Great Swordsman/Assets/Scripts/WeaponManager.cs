@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -82,6 +83,30 @@ public class WeaponManager : MonoBehaviour
         {
             Destroy(weapons[index]);
             CreateWeapon(weaponPrefabIndex, weapons[index].GetComponent<Weapon>().player);
+        }
+    }
+
+    public void ChangeRotationSpeed(string type, int value)
+    {
+        foreach (GameObject weaponObj in weapons)
+        {
+            Weapon weapon = weaponObj.GetComponent<Weapon>();
+            if (weapon != null)
+            {
+                weapon.ChangeRotationSpeed(type, value);
+            }
+        }
+    }
+
+    public void ChangeDistanceFromPlayer(float value)
+    {
+        foreach (GameObject weaponObj in weapons)
+        {
+            Weapon weapon = weaponObj.GetComponent<Weapon>();
+            if (weapon != null)
+            {
+                weapon.ChangeDistanceFromPlayer(value);
+            }
         }
     }
 }

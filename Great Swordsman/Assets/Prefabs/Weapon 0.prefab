@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 0
   player: {fileID: 0}
-  rotationSpeed: 100
+  rotationSpeed: 50
 --- !u!70 &2397210862070718242
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

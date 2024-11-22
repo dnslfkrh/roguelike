@@ -31,16 +31,24 @@ public class Player : MonoBehaviour
         rigid.MovePosition(rigid.position + nextVec);
     }
 
-    public void IncreaseAttackDamage(float value)
+    public void ChangeAttackDamage(string type, int value)
     {
-        attackDamage += value;
-        Debug.Log("공격력 증가: " + attackDamage);
+        if (type == "+")
+        {
+            attackDamage += value;
+        }
+        else if (type == "*")
+        {
+            attackDamage *= value;
+        }
+
+        Debug.Log("공격력 변경: " + attackDamage);
     }
 
-    public void IncreaseMoveSpeed(float value)
+    public void IncreaseMoveSpeed(int value)
     {
         Debug.Log("증가 전 이동 속도: " + speed);
         speed += value;
-        Debug.Log("이동 속도 증가: " +  speed);
+        Debug.Log("이동 속도 증가: " + speed);
     }
 }

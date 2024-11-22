@@ -11,6 +11,7 @@ public class UpgradeManager : MonoBehaviour
     private GameObject levelUpPanelInstance;
     private Player player;
     private PlayerHP playerHP;
+    private Weapon weapon;
     private WeaponManager weaponManager;
     private Button[] optionButtons;
 
@@ -21,8 +22,11 @@ public class UpgradeManager : MonoBehaviour
         "Player Damage +5",
         "Player Speed +",
         "Add Sword",
-        "Test E",
-        "Test F"
+        "Increase Weapon Rotation Speed",
+        "Double Damage, Half Sword Speed",
+        "Increase Weapon Distance From Player",
+        "Decrease Weapon Distance From Player",
+
     };
     private List<string> selectedPreviousUpgrades = new List<string>();
 
@@ -46,7 +50,7 @@ public class UpgradeManager : MonoBehaviour
                 break;
 
             case "Player Damage +5":
-                player.IncreaseAttackDamage(5);
+                player.ChangeAttackDamage("+", 5);
                 break;
 
             case "Player Speed +":
@@ -57,6 +61,22 @@ public class UpgradeManager : MonoBehaviour
                 weaponManager.IncreaseWeaponCount();
                 break;
 
+            case "Increase Weapon Rotation Speed":
+                weaponManager.ChangeRotationSpeed("+", 50);
+                break;
+
+            case "Double Damage, Half Sword Speed":
+                player.ChangeAttackDamage("*", 2);
+                weaponManager.ChangeRotationSpeed("/", 2);
+                break;
+
+            case "Increase Weapon Distance From Player":
+                weaponManager.ChangeDistanceFromPlayer(0.5f);
+                break;
+
+            case "Decrease Weapon Distance From Player":
+                weaponManager.ChangeDistanceFromPlayer(-0.5f);
+                break;
         }
         availableUpgrades.Remove(upgrade);
         CloseLevelUpUI();

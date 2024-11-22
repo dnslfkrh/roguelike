@@ -21,7 +21,7 @@ public class PlayerHP : MonoBehaviour
         UpdateHealthBar();
     }
 
-    public void IncreaseHP(string type, float value)
+    public void IncreaseHP(string type, int value)
     {
         if (type == "currentHP")
         {
