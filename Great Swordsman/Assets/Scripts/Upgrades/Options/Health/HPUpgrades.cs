@@ -23,4 +23,14 @@ namespace Upgrades.Health
             components.PlayerHP.IncreaseHP("maxHP", 200);
         }
     }
+
+    public class HPRegeneration : IUpgrade
+    {
+        public string Name => "HP Regeneration";
+        public string Description => "체력이 재생됩니다";
+        public void Apply(PlayerComponents components)
+        {
+            components.PlayerHP.StartHPRegeneration();
+        }
+    }
 }

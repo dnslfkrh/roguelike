@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class PlayerHP : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerHP : MonoBehaviour
     public UnityEvent<float> onHealthChanged;
 
     private bool isDead = false;
+    private bool isRegenerating = false;
 
     public float MaxHP => maxHP;
     public float CurrentHP => currentHP;
@@ -68,6 +70,37 @@ public class PlayerHP : MonoBehaviour
         isDead = true;
         Debug.Log("Player died!");
         onPlayerDeath?.Invoke();
+    }
+
+    public void StartHPRegeneration()
+    {
+        if (!isRegenerating)
+        {
+            isRegenerating = true;
+            StartCoroutine(RegenerateHealth());
+        }
+    }
+
+    private IEnumerator RegenerateHealth()
+    {
+        int refenerateValue = 30;
+
+        while (isRegenerating)
+        {
+            if (currentHP >= maxHP || currentHP + refenerateValue >= maxHP)
+            {
+                currentHP = maxHP;
+                Debug.Log("체력이 꽉차서 회복 안해" + currentHP);
+            }
+            else
+            {
+                currentHP += refenerateValue;
+                Debug.Log("체력이 조금 회복" + currentHP);
+            }
+
+            UpdateHealthBar();
+            yield return new WaitForSeconds(2f);
+        }
     }
 
     public float GetCurrentHealth() => currentHP;
