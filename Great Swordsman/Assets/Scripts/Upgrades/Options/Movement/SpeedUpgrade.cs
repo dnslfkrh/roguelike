@@ -1,5 +1,6 @@
 namespace Upgrades.Movement
 {
+    using UnityEngine;
     using Upgrades.Core;
 
     public class PlayerSpeedUpgrade : IUpgrade
@@ -9,7 +10,19 @@ namespace Upgrades.Movement
 
         public void Apply(PlayerComponents components)
         {
+            components.Player.IncreaseMoveSpeed(2);
+        }
+    }
+
+    public class PlayerAndWeaponSpeedUpgrade : IUpgrade
+    {
+        public string Name => "Player And Weapon Speed Upgrade";
+        public string Description => "플레이어의 이동 속도와 무기의 회전 속도가 증가합니다.";
+
+        public void Apply(PlayerComponents components)
+        {
             components.Player.IncreaseMoveSpeed(1);
+            components.WeaponManager.ChangeRotationSpeed("+", 30);
         }
     }
 }

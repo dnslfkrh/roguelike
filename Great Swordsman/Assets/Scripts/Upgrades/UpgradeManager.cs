@@ -49,7 +49,8 @@ public class UpgradeManager : MonoBehaviour
             
             // Movement Upgrades
             new PlayerSpeedUpgrade(),                   // 플레이어 이동속도 증가
-            
+            new PlayerAndWeaponSpeedUpgrade(),          // 이동 속도와 칼 회전 속도 증가
+
             // Weapon Upgrades
             new AddSwordUpgrade(),                      // 칼 1개 추가
             new WeaponRotationSpeedUpgrade(),           // 칼 회전 속도 증가
