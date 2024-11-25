@@ -38,6 +38,8 @@ public class UpgradeManager : MonoBehaviour
     {
         availableUpgrades = new List<IUpgrade>
         {
+            // 테스트를 위한 주석 처리
+
             // Health Upgrades
             //new CurrentHPUpgrade(),                     // 현제 체력 증가
             //new MaxHPUpgrade(),                         // 최대 체력 증가
@@ -51,7 +53,8 @@ public class UpgradeManager : MonoBehaviour
             //// Movement Upgrades
             //new PlayerSpeedUpgrade(),                   // 플레이어 이동속도 증가
             //new PlayerAndWeaponSpeedUpgrade(),          // 이동 속도와 칼 회전 속도 증가
-            new PlayerSpeedAndMaxHPUpgrade(),           // 이동 속도 증가 + 최대 체력 감소
+            //new IncreasePlayerSpeedAndDecreaseMaxHPUpgrade(),           // 이동 속도 증가 + 최대 체력 감소
+            new DecreasePlayerSpeedAndIncreaseMaxHPUpgrade(),           // 이동 속도 감소 + 최대 체력 증가
 
             // Weapon Upgrades
             new AddSwordUpgrade(),                      // 칼 1개 추가

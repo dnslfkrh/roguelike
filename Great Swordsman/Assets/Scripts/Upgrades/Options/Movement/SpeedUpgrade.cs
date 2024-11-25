@@ -26,7 +26,7 @@ namespace Upgrades.Movement
         }
     }
 
-    public class PlayerSpeedAndMaxHPUpgrade : IUpgrade
+    public class IncreasePlayerSpeedAndDecreaseMaxHPUpgrade : IUpgrade
     {
         public string Name => "Increase Player Speed And Decrease MaxHP Upgrade";
         public string Description => "플레이어의 이동 속도가 증가하고 최대 체력이 감소합니다.";
@@ -35,6 +35,18 @@ namespace Upgrades.Movement
         {
             components.Player.IncreaseMoveSpeed(1);
             components.PlayerHP.ChangeHP("maxHP", -200);
+        }
+    }
+
+    public class DecreasePlayerSpeedAndIncreaseMaxHPUpgrade : IUpgrade
+    {
+        public string Name => "Decrease Player Speed And Increase MaxHP Upgrade";
+        public string Description => "플레이어의 이동 속도가 감소하고 최대 체력이 증가합니다.";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.Player.IncreaseMoveSpeed(-1);
+            components.PlayerHP.ChangeHP("maxHP", 200);
         }
     }
 }
