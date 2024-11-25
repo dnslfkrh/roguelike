@@ -24,4 +24,16 @@ namespace Upgrades.Combat
             components.WeaponManager.ChangeRotationSpeed("/", 2);
         }
     }
+
+    public class DoubleDamageHalfMaxHP : IUpgrade
+    {
+        public string Name => "Double Damage, Half Max HP";
+        public string Description => "공격력 2배, 최대 체력 절반";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.Player.ChangeAttackDamage("*", 2);
+            components.PlayerHP.ChangeMaxHPHalf();
+        }
+    }
 }

@@ -30,14 +30,31 @@ public class PlayerHP : MonoBehaviour
             if (currentHP + value > maxHP)
             {
                 currentHP = maxHP;
+                UpdateHealthBar();
                 return;
             }
             currentHP += value;
+            UpdateHealthBar();
         }
         else if (type == "maxHP")
         {
             maxHP += value;
+            UpdateHealthBar();
         }
+    }
+
+    public void ChangeMaxHPHalf()
+    {
+        maxHP /= 2;
+
+        if (currentHP > maxHP)
+        {
+            currentHP = maxHP;
+            Debug.Log("현재 체력을 최대 체력에: " + currentHP);
+        }
+
+        Debug.Log("최대 체력 반토막: " + maxHP);
+        UpdateHealthBar();
     }
 
     public void TakeDamage(float damage)
@@ -48,7 +65,7 @@ public class PlayerHP : MonoBehaviour
         }
 
         currentHP = Mathf.Max(0f, currentHP - damage);
-        Debug.Log($"현재 체력: {currentHP}");
+        Debug.Log("공격 받아서 현재 체력: " + currentHP);
 
         UpdateHealthBar();
 
@@ -60,7 +77,8 @@ public class PlayerHP : MonoBehaviour
 
     private void UpdateHealthBar()
     {
-        float healthRatio = currentHP / maxHP;
+        float healthRatio = (float)currentHP / maxHP;
+        Debug.Log($"currentHP: {currentHP}, maxHP: {maxHP}, healthRatio: {healthRatio}");
         onHealthChanged?.Invoke(healthRatio);
     }
 

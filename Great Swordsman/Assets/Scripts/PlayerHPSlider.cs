@@ -18,34 +18,32 @@ public class PlayerHPSlider : MonoBehaviour
             hpSlider = GetComponent<Slider>();
 
         hpSlider.minValue = 0f;
-        hpSlider.maxValue = playerHP.MaxHP;
 
         if (playerHP != null)
         {
+            UpdateMaxHP(playerHP.MaxHP);
             playerHP.onHealthChanged.AddListener(UpdateHealthBar);
         }
     }
 
     private void Start()
     {
-        hpSlider.value = playerHP.CurrentHP;
-
-        if (gradient != null && fill != null)
-        {
-            fill.color = gradient.Evaluate(1f);
-        }
+        UpdateHealthBar(playerHP.CurrentHP / playerHP.MaxHP);
     }
 
     private void UpdateHealthBar(float healthRatio)
     {
-        float currentValue = playerHP.CurrentHP;
-        hpSlider.value = currentValue;
+        hpSlider.value = healthRatio * hpSlider.maxValue;
 
         if (gradient != null && fill != null)
         {
-            float ratio = Mathf.Clamp01(currentValue / playerHP.MaxHP);
-            fill.color = gradient.Evaluate(ratio);
+            fill.color = gradient.Evaluate(healthRatio);
         }
+    }
+
+    private void UpdateMaxHP(float maxHP)
+    {
+        hpSlider.maxValue = maxHP;
     }
 
     private void OnEnable()

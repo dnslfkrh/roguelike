@@ -46,6 +46,7 @@ public class UpgradeManager : MonoBehaviour
             // Combat Upgrades
             new PlayerDamageUpgrade(),                  // 공격력 증가
             new DoubleDamageHalfSpeedUpgrade(),         // 공격력 두배 + 칼 회전 속도 절반
+            new DoubleDamageHalfMaxHP(),         // 공격력 두배 + 칼 회전 속도 절반
             
             // Movement Upgrades
             new PlayerSpeedUpgrade(),                   // 플레이어 이동속도 증가
