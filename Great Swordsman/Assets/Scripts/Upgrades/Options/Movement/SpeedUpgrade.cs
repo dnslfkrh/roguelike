@@ -25,4 +25,16 @@ namespace Upgrades.Movement
             components.WeaponManager.ChangeRotationSpeed("+", 30);
         }
     }
+
+    public class PlayerSpeedAndMaxHPUpgrade : IUpgrade
+    {
+        public string Name => "Player Speed And MaxHP Upgrade";
+        public string Description => "플레이어의 이동 속도와 최대 체력이 증가합니다.";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.Player.IncreaseMoveSpeed(1);
+            components.PlayerHP.IncreaseHP("maxHP", 150);
+        }
+    }
 }

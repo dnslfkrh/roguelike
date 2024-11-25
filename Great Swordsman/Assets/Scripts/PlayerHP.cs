@@ -30,17 +30,16 @@ public class PlayerHP : MonoBehaviour
             if (currentHP + value > maxHP)
             {
                 currentHP = maxHP;
-                UpdateHealthBar();
                 return;
             }
             currentHP += value;
-            UpdateHealthBar();
         }
         else if (type == "maxHP")
         {
             maxHP += value;
-            UpdateHealthBar();
         }
+        
+        UpdateHealthBar();
     }
 
     public void ChangeMaxHPHalf()
