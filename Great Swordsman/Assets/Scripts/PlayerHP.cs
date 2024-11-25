@@ -23,22 +23,32 @@ public class PlayerHP : MonoBehaviour
         UpdateHealthBar();
     }
 
-    public void IncreaseHP(string type, int value)
+    public void ChangeHP(string type, int value)
     {
         if (type == "currentHP")
         {
-            if (currentHP + value > maxHP)
-            {
-                currentHP = maxHP;
-                return;
-            }
             currentHP += value;
         }
         else if (type == "maxHP")
         {
             maxHP += value;
         }
-        
+
+        if (currentHP <= 0)
+        {
+            currentHP = 100;
+        }
+
+        if (maxHP <= 0)
+        {
+            maxHP = 100;
+        }
+
+        if (currentHP > maxHP)
+        {
+            currentHP = maxHP;
+        }
+
         UpdateHealthBar();
     }
 

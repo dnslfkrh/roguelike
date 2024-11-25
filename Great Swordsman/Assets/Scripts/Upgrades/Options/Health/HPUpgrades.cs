@@ -9,7 +9,7 @@ namespace Upgrades.Health
 
         public void Apply(PlayerComponents components)
         {
-            components.PlayerHP.IncreaseHP("currentHP", 100);
+            components.PlayerHP.ChangeHP("currentHP", 100);
         }
     }
 
@@ -20,7 +20,7 @@ namespace Upgrades.Health
 
         public void Apply(PlayerComponents components)
         {
-            components.PlayerHP.IncreaseHP("maxHP", 200);
+            components.PlayerHP.ChangeHP("maxHP", 200);
         }
     }
 
