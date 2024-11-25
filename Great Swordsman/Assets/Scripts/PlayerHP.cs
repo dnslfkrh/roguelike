@@ -14,6 +14,8 @@ public class PlayerHP : MonoBehaviour
     private bool isDead = false;
     private bool isRegenerating = false;
 
+    public float refenerateValue = 30;
+
     public float MaxHP => maxHP;
     public float CurrentHP => currentHP;
 
@@ -108,10 +110,14 @@ public class PlayerHP : MonoBehaviour
         }
     }
 
+    public void ChangeRefenerateValue(float value)
+    {
+        refenerateValue += value;
+        Debug.Log("체력 재생력 증가: " + refenerateValue);
+    }
+
     private IEnumerator RegenerateHealth()
     {
-        int refenerateValue = 30;
-
         while (isRegenerating)
         {
             if (currentHP >= maxHP || currentHP + refenerateValue >= maxHP)

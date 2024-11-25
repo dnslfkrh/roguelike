@@ -33,4 +33,14 @@ namespace Upgrades.Health
             components.PlayerHP.StartHPRegeneration();
         }
     }
+
+    public class IncreaseHPRegenerationUpgrade : IUpgrade
+    {
+        public string Name => "Increase HP Regeneration";
+        public string Description => "*주의* 체력 재생력이 증가하지만 재생 효과가 없을 시 의미가 없습니다";
+        public void Apply(PlayerComponents components)
+        {
+            components.PlayerHP.ChangeRefenerateValue(20);
+        }
+    }
 }
