@@ -24,7 +24,7 @@ namespace Upgrades.Health
         }
     }
 
-    public class HPRegeneration : IUpgrade
+    public class HPRegenerationUpgrade : IUpgrade
     {
         public string Name => "HP Regeneration";
         public string Description => "체력이 재생됩니다";

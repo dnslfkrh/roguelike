@@ -46,7 +46,7 @@ public class WeaponManager : MonoBehaviour
         weapons.Add(weapon);
     }
 
-    public void IncreaseWeaponCount()
+    public void IncreaseWeaponCount(float value)
     {
         Weapon playerWeapon = weapons.Count > 0 ? weapons[0].GetComponent<Weapon>() : null;
         Transform playerTransform = playerWeapon != null ? playerWeapon.player : null;
@@ -56,7 +56,7 @@ public class WeaponManager : MonoBehaviour
             weapon.SetActive(false);
         }
 
-        float totalWeapons = weapons.Count + 1;
+        float totalWeapons = weapons.Count + value;
         float angleStep = 360f / totalWeapons;
 
         for (int i = 0; i < totalWeapons; i++)

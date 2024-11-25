@@ -16,7 +16,7 @@ namespace Upgrades.Combat
     public class DoubleDamageHalfSpeedUpgrade : IUpgrade
     {
         public string Name => "Double Damage, Half Sword Speed";
-        public string Description => "공격력 2배, 검의 회전속도 절반";
+        public string Description => "공격력이 2배가 되지만, 검의 회전 속도가 절반으로 감소합니다";
 
         public void Apply(PlayerComponents components)
         {
@@ -25,10 +25,10 @@ namespace Upgrades.Combat
         }
     }
 
-    public class DoubleDamageHalfMaxHP : IUpgrade
+    public class DoubleDamageHalfMaxHPUpgrade : IUpgrade
     {
         public string Name => "Double Damage, Half Max HP";
-        public string Description => "공격력 2배, 최대 체력 절반";
+        public string Description => "공격력이 2배가 되지만, 최대 체력이 절반으로 감소합니다";
 
         public void Apply(PlayerComponents components)
         {

@@ -41,12 +41,12 @@ public class UpgradeManager : MonoBehaviour
             // Health Upgrades
             new CurrentHPUpgrade(),                     // 현제 체력 증가
             new MaxHPUpgrade(),                         // 최대 체력 증가
-            new HPRegeneration(),                       // 체력 재생
+            new HPRegenerationUpgrade(),                       // 체력 재생
             
             // Combat Upgrades
             new PlayerDamageUpgrade(),                  // 공격력 증가
             new DoubleDamageHalfSpeedUpgrade(),         // 공격력 두배 + 칼 회전 속도 절반
-            new DoubleDamageHalfMaxHP(),         // 공격력 두배 + 칼 회전 속도 절반
+            new DoubleDamageHalfMaxHPUpgrade(),                // 공격력 두배 + 최대 체력 반토막
             
             // Movement Upgrades
             new PlayerSpeedUpgrade(),                   // 플레이어 이동속도 증가
@@ -54,6 +54,7 @@ public class UpgradeManager : MonoBehaviour
 
             // Weapon Upgrades
             new AddSwordUpgrade(),                      // 칼 1개 추가
+            new AddSwordsAndDecreaseDamageUpgrade(),    // 칼 2개 추가 + 개별 데미지 감소
             new WeaponRotationSpeedUpgrade(),           // 칼 회전 속도 증가
             new WeaponDistanceUpgrade(0.5f, true),      // 칼 회전 폭 증가
             new WeaponDistanceUpgrade(-0.5f, false)     // 칼 회전 폭 감소

@@ -9,7 +9,7 @@ namespace Upgrades.Weapons
 
         public void Apply(PlayerComponents components)
         {
-            components.WeaponManager.IncreaseWeaponCount();
+            components.WeaponManager.IncreaseWeaponCount(1);
         }
     }
 
@@ -41,6 +41,18 @@ namespace Upgrades.Weapons
         public void Apply(PlayerComponents components)
         {
             components.WeaponManager.ChangeDistanceFromPlayer(distanceChange);
+        }
+    }
+
+    public class AddSwordsAndDecreaseDamageUpgrade: IUpgrade
+    {
+        public string Name => "Add Swords And Decrease Damage";
+        public string Description => "새로운 검들을 추가하지만 대미지가 약해집니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.WeaponManager.IncreaseWeaponCount(2);
+            components.Player.ChangeAttackDamage("+", -30);
         }
     }
 }

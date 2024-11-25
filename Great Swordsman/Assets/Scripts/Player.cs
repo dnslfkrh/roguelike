@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
 
     public void ChangeAttackDamage(string type, int value)
     {
+        Debug.Log("변경 전 공격력: " + attackDamage);
+
         if (type == "+")
         {
             attackDamage += value;
@@ -40,6 +42,12 @@ public class Player : MonoBehaviour
         else if (type == "*")
         {
             attackDamage *= value;
+        }
+
+        // 최소 공격력
+        if (attackDamage <= 0)
+        {
+            attackDamage = 10;
         }
 
         Debug.Log("공격력 변경: " + attackDamage);
