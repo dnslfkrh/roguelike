@@ -7,6 +7,7 @@ using Upgrades.Health;
 using Upgrades.Combat;
 using Upgrades.Movement;
 using Upgrades.Weapons;
+using Upgrades.Skill;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -30,7 +31,8 @@ public class UpgradeManager : MonoBehaviour
         playerComponents = new PlayerComponents(
             GameManager.Instance.player,
             GameManager.Instance.playerHP,
-            GameManager.Instance.weaponManager
+            GameManager.Instance.weaponManager,
+            GameManager.Instance.skillManager
         );
     }
 
@@ -41,28 +43,33 @@ public class UpgradeManager : MonoBehaviour
             // 테스트를 위한 주석 처리
 
             // Health Upgrades
-            //new CurrentHPUpgrade(),                     // 현제 체력 증가
-            //new MaxHPUpgrade(),                         // 최대 체력 증가
-            //new HPRegenerationUpgrade(),                // 체력 재생
-            new IncreaseHPRegenerationUpgrade(),                // 체력 재생량 증가 
+            new CurrentHPUpgrade(),                                 // 현제 체력 증가
+            new MaxHPUpgrade(),                                     // 최대 체력 증가
+            new HPRegenerationUpgrade(),                            // 체력 재생 시작
+            new IncreaseHPRegenerationUpgrade(),                    // 체력 재생량 증가 
             
-            //// Combat Upgrades
-            //new PlayerDamageUpgrade(),                  // 공격력 증가
-            //new DoubleDamageHalfSpeedUpgrade(),         // 공격력 두배 + 칼 회전 속도 절반
-            //new DoubleDamageHalfMaxHPUpgrade(),         // 공격력 두배 + 최대 체력 반토막
+            // Combat Upgrades
+            new PlayerDamageUpgrade(),                              // 공격력 증가
+            new DoubleDamageHalfSpeedUpgrade(),                     // 공격력 두배 + 칼 회전 속도 절반
+            new DoubleDamageHalfMaxHPUpgrade(),                     // 공격력 두배 + 최대 체력 반토막
             
-            //// Movement Upgrades
-            //new PlayerSpeedUpgrade(),                   // 플레이어 이동속도 증가
-            //new PlayerAndWeaponSpeedUpgrade(),          // 이동 속도와 칼 회전 속도 증가
-            //new IncreasePlayerSpeedAndDecreaseMaxHPUpgrade(),           // 이동 속도 증가 + 최대 체력 감소
-            //new DecreasePlayerSpeedAndIncreaseMaxHPUpgrade(),           // 이동 속도 감소 + 최대 체력 증가
+            // Movement Upgrades
+            new PlayerSpeedUpgrade(),                               // 플레이어 이동속도 증가
+            new PlayerAndWeaponSpeedUpgrade(),                      // 이동 속도와 칼 회전 속도 증가
+            new IncreasePlayerSpeedAndDecreaseMaxHPUpgrade(),       // 이동 속도 증가 + 최대 체력 감소
+            new DecreasePlayerSpeedAndIncreaseMaxHPUpgrade(),       // 이동 속도 감소 + 최대 체력 증가
 
             // Weapon Upgrades
-            //new AddSwordUpgrade(),                      // 칼 1개 추가
-            new AddSwordsAndDecreaseDamageUpgrade(),    // 칼 2개 추가 + 개별 데미지 감소
-            new WeaponRotationSpeedUpgrade(),           // 칼 회전 속도 증가
-            new WeaponDistanceUpgrade(0.5f, true),      // 칼 회전 폭 증가
-            new WeaponDistanceUpgrade(-0.5f, false)     // 칼 회전 폭 감소
+            new AddSwordUpgrade(),                                  // 칼 1개 추가
+            new AddSwordsAndDecreaseDamageUpgrade(),                // 칼 2개 추가 + 개별 데미지 감소
+            new WeaponRotationSpeedUpgrade(),                       // 칼 회전 속도 증가
+            new WeaponDistanceUpgrade(0.5f, true),                  // 칼 회전 폭 증가
+            new WeaponDistanceUpgrade(-0.5f, false),                // 칼 회전 폭 감소
+
+            // Skill Upgrades
+            new UnlockDashSkillUpgrade(),                           // 대쉬 스킬 잠금해제
+            new DashSkillDistanceUpgrade(),                         // 대쉬 스킬 이동 거리 증가
+            new DashSkillCooldownUpgrade(),                         // 대쉬 스킬 쿨타임 감소
         };
     }
 

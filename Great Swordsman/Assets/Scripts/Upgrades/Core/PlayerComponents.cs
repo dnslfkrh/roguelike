@@ -5,12 +5,14 @@ namespace Upgrades.Core
         public Player Player;
         public PlayerHP PlayerHP;
         public WeaponManager WeaponManager;
+        public SkillManager SkillManager;
 
-        public PlayerComponents(Player player, PlayerHP playerHP, WeaponManager weaponManager)
+        public PlayerComponents(Player player, PlayerHP playerHP, WeaponManager weaponManager, SkillManager skillManager)
         {
             Player = player;
             PlayerHP = playerHP;
             WeaponManager = weaponManager;
+            SkillManager = skillManager;
         }
     }
 }

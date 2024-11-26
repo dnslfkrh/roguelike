@@ -5676,6 +5676,7 @@ GameObject:
   - component: {fileID: 986323498}
   - component: {fileID: 986323497}
   - component: {fileID: 986323499}
+  - component: {fileID: 986323500}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5699,6 +5700,7 @@ MonoBehaviour:
   inputVec: {x: 0, y: 0}
   speed: 5
   attackDamage: 0
+  rigid: {fileID: 0}
 --- !u!212 &986323495
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5829,7 +5831,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &986323499
 MonoBehaviour:
@@ -5850,6 +5852,23 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+  refenerateValue: 30
+--- !u!114 &986323500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986323493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796271ec6c621944aa5238015ade591e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 986323494}
+  dashDistance: 5
+  dashCooldown: 5
+  isDashUnlocked: 0
 --- !u!1 &999620242
 GameObject:
   m_ObjectHideFlags: 0
@@ -6227,11 +6246,12 @@ MonoBehaviour:
   pool: {fileID: 88695089}
   upgradeManager: {fileID: 971788728}
   weaponManager: {fileID: 2109008157}
+  skillManager: {fileID: 986323500}
   gameTime: 0
   maxGameTime: 300
   level: 0
   exp: 0
-  nextExp: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
+  nextExp: 03000000030000000300000003000000030000000300000003000000030000000300000003000000
 --- !u!4 &1456404997
 Transform:
   m_ObjectHideFlags: 0

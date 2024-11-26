@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public PoolManager pool;
     public UpgradeManager upgradeManager;
     public WeaponManager weaponManager;
+    public SkillManager skillManager;
 
     [Header("Game Info")]
     public float gameTime;

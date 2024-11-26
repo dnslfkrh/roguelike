@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -6,8 +7,9 @@ public class Player : MonoBehaviour
     public Vector2 inputVec;
     public float speed;
     public float attackDamage;
+    private Vector2 lastNonZeroInputVec;
 
-    Rigidbody2D rigid;
+    public Rigidbody2D rigid;
 
     private void Awake()
     {
@@ -23,6 +25,11 @@ public class Player : MonoBehaviour
     {
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
+
+        if (inputVec != Vector2.zero)
+        {
+            lastNonZeroInputVec = inputVec.normalized;
+        }
     }
 
     private void FixedUpdate()
@@ -58,5 +65,35 @@ public class Player : MonoBehaviour
         Debug.Log("증가 전 이동 속도: " + speed);
         speed += value;
         Debug.Log("이동 속도 증가: " + speed);
+    }
+
+    public void Dash(float distance)
+    {
+        Vector2 dashDirection = inputVec == Vector2.zero ? lastNonZeroInputVec : inputVec.normalized;
+        Vector3 dashVector = new Vector3(dashDirection.x, dashDirection.y, 0) * distance;
+        Vector3 newPosition = transform.position + dashVector;
+
+        StartCoroutine(PerformDash(newPosition));
+    }
+
+    private IEnumerator PerformDash(Vector3 targetPosition)
+    {
+        float dashDuration = 0.2f;
+        float elapsedTime = 0f;
+
+        Vector3 startPosition = transform.position;
+        
+        while (elapsedTime < dashDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / dashDuration;
+
+            Vector3 currentPosition = Vector3.Lerp(startPosition, targetPosition, t);
+            transform.position = currentPosition;
+
+            yield return null;
+        }
+
+        transform.position = targetPosition;
     }
 }
