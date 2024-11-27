@@ -9,6 +9,7 @@ using Upgrades.Movement;
 using Upgrades.Weapons;
 using Upgrades.Skill;
 using System.Linq;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -47,14 +48,16 @@ public class UpgradeManager : MonoBehaviour
             new CurrentHPUpgrade(),                                 // 현제 체력 증가
             new MaxHPUpgrade(),                                     // 최대 체력 증가
             new HPRegenerationUpgrade(),                            // 체력 재생 시작
-            new IncreaseHPRegenerationUpgrade(),                    // 체력 재생량 증가 
+            new IncreaseHPRegenerationUpgrade(),                    // 체력 재생량 증가
+            new VampiricUpdate(),                                   // 피흡 시작
+            new VampiricValueUpdate(),                              // 피흡량 증가
             
             // Combat Upgrades
             new PlayerDamageUpgrade(),                              // 공격력 증가
             new DoubleDamageHalfSpeedUpgrade(),                     // 공격력 두배 + 칼 회전 속도 절반
             new DoubleDamageHalfMaxHPUpgrade(),                     // 공격력 두배 + 최대 체력 반토막
-            new IncreaseKnockbackForceUpgrade(),               // 적 넉백 거리 증가
-            
+            new IncreaseKnockbackForceUpgrade(),                    // 적 넉백 거리 증가
+
             // Movement Upgrades
             new PlayerSpeedUpgrade(),                               // 플레이어 이동속도 증가
             new PlayerAndWeaponSpeedUpgrade(),                      // 이동 속도와 칼 회전 속도 증가
@@ -71,7 +74,16 @@ public class UpgradeManager : MonoBehaviour
             // Skill Upgrades
             new UnlockDashSkillUpgrade(),                           // 대쉬 스킬 잠금해제
             new DashSkillDistanceUpgrade(),                         // 대쉬 스킬 이동 거리 증가
-            new DashSkillCooldownUpgrade(),                         // 대쉬 스킬 쿨타임 감소            
+            new DashSkillCooldownUpgrade(),                         // 대쉬 스킬 쿨타임 감소 
+
+            //체력 1로 한번 버티기 - bool 변수로 죽을 때 <= 0 일 때 1로 하고 다시 false
+            //불 칼로 변경 - 적 도트딜
+            //얼음 칼로 변경 - 적 슬로우
+            //추가 경험치 - bool 변수로 true일 때 0.1씩 줄까
+            //경험치 그냥 획득 - 게임 매니저로 주면 됨
+            //칼 회전 방향 변경?
+            //최대 체력 증가 + 공격력 감소
+            //최대 체력 감소 + 공격력 증가
         };
     }
 

@@ -15,6 +15,7 @@ public class PlayerHP : MonoBehaviour
     private bool isRegenerating = false;
 
     public float refenerateValue = 30;
+    public float vampiricValue = 10;
 
     public float MaxHP => maxHP;
     public float CurrentHP => currentHP;
@@ -134,6 +135,21 @@ public class PlayerHP : MonoBehaviour
             UpdateHealthBar();
             yield return new WaitForSeconds(2f);
         }
+    }
+    public void Vampiric()
+    {
+        if (GameManager.Instance.player.isVampiric == true)
+        {
+            currentHP += (GameManager.Instance.player.attackDamage / vampiricValue);
+            Debug.Log("ÇÇÇØ ÈíÇ÷");
+            UpdateHealthBar();
+        }
+    }
+
+    public void ChangeVampiricValue()
+    {
+        vampiricValue -= 5;
+        Debug.Log("ÇÇÇØ ÈíÇ÷ °¨¼Ò" + vampiricValue);
     }
 
     public float GetCurrentHealth() => currentHP;

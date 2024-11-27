@@ -43,4 +43,26 @@ namespace Upgrades.Health
             components.PlayerHP.ChangeRefenerateValue(20);
         }
     }
+
+    public class VampiricUpdate : IUpgrade
+    {
+        public string Name => "Vampiric Update";
+        public string Description => "피해 흡혈을 시작합니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.Player.ChangeVampiric();
+        }
+    }
+
+    public class VampiricValueUpdate : IUpgrade
+    {
+        public string Name => "Vampiric Value Update";
+        public string Description => "피해 흡혈량이 증가합니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.PlayerHP.ChangeVampiricValue();
+        }
+    }
 }

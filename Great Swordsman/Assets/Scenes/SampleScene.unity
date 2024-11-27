@@ -5700,6 +5700,7 @@ MonoBehaviour:
   inputVec: {x: 0, y: 0}
   speed: 5
   attackDamage: 0
+  isVampiric: 0
   rigid: {fileID: 0}
 --- !u!212 &986323495
 SpriteRenderer:
@@ -5853,6 +5854,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   refenerateValue: 30
+  vampiricValue: 10
 --- !u!114 &986323500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6256,7 +6258,7 @@ MonoBehaviour:
   maxGameTime: 300
   level: 0
   exp: 0
-  nextExp: 03000000030000000300000003000000030000000300000003000000030000000300000003000000
+  nextExp: 02000000020000006400000005000000050000000500000005000000020000000200000002000000
 --- !u!4 &1456404997
 Transform:
   m_ObjectHideFlags: 0
@@ -19653,6 +19655,7 @@ MonoBehaviour:
   initialWeaponCount: 3
   weaponPrefabs:
   - {fileID: 995833021315391506, guid: 944128da839ee0d439506e769d4e35cb, type: 3}
+  knockbackForce: 5
 --- !u!4 &2109008158
 Transform:
   m_ObjectHideFlags: 0

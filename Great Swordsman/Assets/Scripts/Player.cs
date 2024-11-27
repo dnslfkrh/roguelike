@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public Vector2 inputVec;
     public float speed;
     public float attackDamage;
+    public bool isVampiric = false;
     private Vector2 lastNonZeroInputVec;
 
     public Rigidbody2D rigid;
@@ -95,5 +96,17 @@ public class Player : MonoBehaviour
         }
 
         transform.position = targetPosition;
+    }
+
+    public void ChangeVampiric()
+    {
+        if (!isVampiric)
+        {
+            isVampiric = true;
+        }
+        else
+        {
+            isVampiric = false;
+        }
     }
 }
