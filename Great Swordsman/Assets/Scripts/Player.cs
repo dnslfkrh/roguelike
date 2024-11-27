@@ -109,4 +109,10 @@ public class Player : MonoBehaviour
             isVampiric = false;
         }
     }
+
+    public void GetExpFromOption()
+    {
+        GameManager.Instance.exp += 5;
+        Debug.Log("경험치 받음");
+    }
 }

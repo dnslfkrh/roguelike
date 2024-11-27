@@ -5,11 +5,11 @@ namespace Upgrades.Combat
     public class PlayerDamageUpgrade : IUpgrade
     {
         public string Name => "Player Damage +5";
-        public string Description => "공격력을 5 증가시킵니다";
+        public string Description => "공격력을 25 증가시킵니다";
 
         public void Apply(PlayerComponents components)
         {
-            components.Player.ChangeAttackDamage("+", 5);
+            components.Player.ChangeAttackDamage("+", 25);
         }
     }
 
@@ -45,6 +45,17 @@ namespace Upgrades.Combat
         public void Apply(PlayerComponents components)
         {
             components.WeaponManager.IncreaseKnockbackForce();
+        }
+    }
+
+    public class FreeExpUpgrade : IUpgrade
+    {
+        public string Name => "Free Exp";
+        public string Description => "경험치를 드립니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.Player.GetExpFromOption();
         }
     }
 }

@@ -65,4 +65,39 @@ namespace Upgrades.Health
             components.PlayerHP.ChangeVampiricValue();
         }
     }
+
+    public class IncreaseMaxHPDecreaseDamageUpgrade : IUpgrade
+    {
+        public string Name => "Increase MaxHP Decrease Damage";
+        public string Description => "최대 체력이 증가하고 공격력이 감소합니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.PlayerHP.ChangeHP("maxHP", 100);
+            components.Player.ChangeAttackDamage("+", -20);
+        }
+    }
+
+    public class DecreaseMaxHPIncreaseDamageUpgrade : IUpgrade
+    {
+        public string Name => "Decrease MaxHP Increase Damage";
+        public string Description => "최대 체력이 감소하고 공격력이 증가합니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.PlayerHP.ChangeHP("maxHP", -100);
+            components.Player.ChangeAttackDamage("+", 20);
+        }
+    }
+
+    public class CanSurviveOnceUpgrade : IUpgrade
+    {
+        public string Name => "Can Survive nce";
+        public string Description => "앞으로 단 1회 체력 1로 버틸 수 있습니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.PlayerHP.CanSurviveOnce();
+        }
+    }
 }

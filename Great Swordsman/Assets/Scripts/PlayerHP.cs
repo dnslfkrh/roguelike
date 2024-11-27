@@ -13,6 +13,7 @@ public class PlayerHP : MonoBehaviour
 
     private bool isDead = false;
     private bool isRegenerating = false;
+    private bool canSurviveOnce = false;
 
     public float refenerateValue = 30;
     public float vampiricValue = 10;
@@ -96,10 +97,28 @@ public class PlayerHP : MonoBehaviour
 
     private void Die()
     {
-        if (isDead) return;
+        if (isDead)
+        {
+            return;
+        }
+
+        if (canSurviveOnce)
+        {
+            currentHP = 1;
+            canSurviveOnce = false;
+            Debug.Log("°ßµ®");
+            UpdateHealthBar();
+            return;
+        }
+
         isDead = true;
         Debug.Log("Player died!");
         onPlayerDeath?.Invoke();
+    }
+
+    public void CanSurviveOnce()
+    {
+        canSurviveOnce = true;
     }
 
     public void StartHPRegeneration()
