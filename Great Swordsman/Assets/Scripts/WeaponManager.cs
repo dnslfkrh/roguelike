@@ -11,6 +11,8 @@ public class WeaponManager : MonoBehaviour
     public GameObject[] weaponPrefabs;
     private List<GameObject> weapons = new List<GameObject>();
 
+    public float knockbackForce = 5;
+
     public void InitializeWeapons(Transform playerTransform)
     {
         for (int i = 0; i < initialWeaponCount; i++)
@@ -46,7 +48,7 @@ public class WeaponManager : MonoBehaviour
         weapons.Add(weapon);
     }
 
-    public void IncreaseWeaponCount(float value)
+    public void IncreaseWeaponCount(float value) // 버그 수정 필요
     {
         Weapon playerWeapon = weapons.Count > 0 ? weapons[0].GetComponent<Weapon>() : null;
         Transform playerTransform = playerWeapon != null ? playerWeapon.player : null;
@@ -65,7 +67,6 @@ public class WeaponManager : MonoBehaviour
             CreateWeapon(angle, playerTransform);
         }
     }
-
 
     public void DecreaseWeaponCount()
     {
@@ -108,5 +109,11 @@ public class WeaponManager : MonoBehaviour
                 weapon.ChangeDistanceFromPlayer(value);
             }
         }
+    }
+
+    public void IncreaseKnockbackForce()
+    {
+        knockbackForce += 5;
+        Debug.Log("이제 적을 더 멀리 밀어냅니다: " + knockbackForce);
     }
 }

@@ -36,4 +36,15 @@ namespace Upgrades.Combat
             components.PlayerHP.ChangeMaxHPHalf();
         }
     }
+
+    public class IncreaseKnockbackForceUpgrade : IUpgrade
+    {
+        public string Name => "Increase Enemy Knockback";
+        public string Description => "적을 더 멀리 밀어냅니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.WeaponManager.IncreaseKnockbackForce();
+        }
+    }
 }

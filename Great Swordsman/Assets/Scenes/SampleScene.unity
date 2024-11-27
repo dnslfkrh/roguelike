@@ -6241,6 +6241,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 018ee0f07e7cbdf43b6a5c7a8d5af8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 2142470292108586078, guid: 1544674da6d18e548a89e050e1f6cba1, type: 3}
+  - {fileID: 2606852259694311396, guid: 6cf98e6e4c2b1034d88f0edd04e8e770, type: 3}
+  - {fileID: 4406361664479097032, guid: 36d8965aebce9e143b4430f7c2788f3b, type: 3}
+  - {fileID: 1062686915122739047, guid: 63359eaeb0b16914aa73df241b0f1a52, type: 3}
   player: {fileID: 986323494}
   playerHP: {fileID: 986323499}
   pool: {fileID: 88695089}

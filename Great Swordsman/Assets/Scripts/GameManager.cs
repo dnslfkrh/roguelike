@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    public Enemy[] enemyPrefabs;
+
     private static GameManager instance;
     public Player player;
     public PlayerHP playerHP;

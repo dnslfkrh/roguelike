@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     private float attackPower;
     private float attackSpeed;
     private float lastAttackTime;
-    private float knockbackForce = 5f;
+    private float knockbackForce;
     private bool isKnockedBack = false;
 
     private EnemyStatsManager statsManager;
@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour
         statsManager = FindObjectOfType<EnemyStatsManager>();
 
         InitializeStats();
+
+        knockbackForce = GameManager.Instance.weaponManager.knockbackForce;
     }
 
     private void InitializeStats()

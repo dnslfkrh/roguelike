@@ -8,6 +8,7 @@ using Upgrades.Combat;
 using Upgrades.Movement;
 using Upgrades.Weapons;
 using Upgrades.Skill;
+using System.Linq;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -52,6 +53,7 @@ public class UpgradeManager : MonoBehaviour
             new PlayerDamageUpgrade(),                              // 공격력 증가
             new DoubleDamageHalfSpeedUpgrade(),                     // 공격력 두배 + 칼 회전 속도 절반
             new DoubleDamageHalfMaxHPUpgrade(),                     // 공격력 두배 + 최대 체력 반토막
+            new IncreaseKnockbackForceUpgrade(),               // 적 넉백 거리 증가
             
             // Movement Upgrades
             new PlayerSpeedUpgrade(),                               // 플레이어 이동속도 증가
@@ -69,7 +71,7 @@ public class UpgradeManager : MonoBehaviour
             // Skill Upgrades
             new UnlockDashSkillUpgrade(),                           // 대쉬 스킬 잠금해제
             new DashSkillDistanceUpgrade(),                         // 대쉬 스킬 이동 거리 증가
-            new DashSkillCooldownUpgrade(),                         // 대쉬 스킬 쿨타임 감소
+            new DashSkillCooldownUpgrade(),                         // 대쉬 스킬 쿨타임 감소            
         };
     }
 
