@@ -73,4 +73,11 @@ public class Weapon : MonoBehaviour
         Vector3 offset = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad) * distanceFromPlayer, Mathf.Sin(angle * Mathf.Deg2Rad) * distanceFromPlayer, 0);
         transform.position = player.position + offset;
     }
+
+    public void ChangeRotationDirection()
+    {
+        rotationSpeed = -rotationSpeed;
+        Debug.Log("현재 무기 회전 속도: " + rotationSpeed);
+    }
+
 }

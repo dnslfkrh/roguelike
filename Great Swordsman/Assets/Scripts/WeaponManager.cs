@@ -116,4 +116,16 @@ public class WeaponManager : MonoBehaviour
         knockbackForce += 5;
         Debug.Log("이제 적을 더 멀리 밀어냅니다: " + knockbackForce);
     }
+
+    public void ChangeRotationDirection()
+    {
+        foreach (GameObject weaponObj in weapons)
+        {
+            Weapon weapon = weaponObj.GetComponent<Weapon>();
+            if (weapon != null)
+            {
+                weapon.ChangeRotationDirection();
+            }
+        }
+    }
 }

@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float speed;
     public float attackDamage;
     public bool isVampiric = false;
+    public bool extraExp = false;
     private Vector2 lastNonZeroInputVec;
 
     public Rigidbody2D rigid;
@@ -112,7 +113,15 @@ public class Player : MonoBehaviour
 
     public void GetExpFromOption()
     {
-        GameManager.Instance.exp += 5;
+        GameManager.Instance.exp += 3;
         Debug.Log("경험치 받음");
+
+        GameManager.Instance.CheckLevelUp();
+    }
+
+    public void ChangeExtraExp()
+    {
+        extraExp = true;
+        Debug.Log("지금부터 추가 경험치");
     }
 }

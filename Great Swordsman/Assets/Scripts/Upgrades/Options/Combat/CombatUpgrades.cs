@@ -4,7 +4,7 @@ namespace Upgrades.Combat
 
     public class PlayerDamageUpgrade : IUpgrade
     {
-        public string Name => "Player Damage +5";
+        public string Name => "Player Damage +25";
         public string Description => "공격력을 25 증가시킵니다";
 
         public void Apply(PlayerComponents components)
@@ -56,6 +56,28 @@ namespace Upgrades.Combat
         public void Apply(PlayerComponents components)
         {
             components.Player.GetExpFromOption();
+        }
+    }
+
+    public class SwordRotateDirectionUpgrade: IUpgrade
+    {
+        public string Name => "Change Sword Rotate Direction";
+        public string Description => "칼 회전 방향을 바꿉니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.WeaponManager.ChangeRotationDirection();
+        }
+    }
+
+    public class ExtraExpUpgrade : IUpgrade
+    {
+        public string Name => "Get Extra Exp";
+        public string Description => "추가 경험치를 얻을 수 있습니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            components.Player.ChangeExtraExp();
         }
     }
 }

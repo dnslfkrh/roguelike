@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Info")]
     public int level;
-    public int exp = 0;
+    public float exp = 0;
     public int[] nextExp = { 10, 20, 30, 60, 150, 210, 280, 360, 450, 600 };
 
     public static GameManager Instance
@@ -55,7 +55,19 @@ public class GameManager : MonoBehaviour
     {
         exp++;
 
-        if (exp == nextExp[level])
+        if (player.extraExp == true)
+        {
+            exp += 0.5f;
+        }
+
+        Debug.Log(exp);
+
+        CheckLevelUp();
+    }
+
+    public void CheckLevelUp()
+    {
+        if (exp >= nextExp[level])
         {
             LevelUp();
         }
