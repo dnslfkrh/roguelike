@@ -5701,6 +5701,7 @@ MonoBehaviour:
   speed: 5
   attackDamage: 0
   isVampiric: 0
+  extraExp: 0
   rigid: {fileID: 0}
 --- !u!212 &986323495
 SpriteRenderer:
@@ -19655,6 +19656,8 @@ MonoBehaviour:
   initialWeaponCount: 3
   weaponPrefabs:
   - {fileID: 995833021315391506, guid: 944128da839ee0d439506e769d4e35cb, type: 3}
+  - {fileID: 995833021315391506, guid: d19fdcaee60255b4abdf78bd55946221, type: 3}
+  - {fileID: 995833021315391506, guid: a1b9ce6984c6cb84990e0df856bdc1e2, type: 3}
   knockbackForce: 5
 --- !u!4 &2109008158
 Transform:

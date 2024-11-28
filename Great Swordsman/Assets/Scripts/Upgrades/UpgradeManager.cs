@@ -45,15 +45,15 @@ public class UpgradeManager : MonoBehaviour
             // 테스트를 위한 주석 처리
 
             // Health Upgrades
-            //new CurrentHPUpgrade(),                                 // 현제 체력 증가
-            //new MaxHPUpgrade(),                                     // 최대 체력 증가
-            //new HPRegenerationUpgrade(),                            // 체력 재생 시작
-            //new IncreaseHPRegenerationUpgrade(),                    // 체력 재생량 증가
-            //new VampiricUpdate(),                                   // 피흡 시작
-            //new VampiricValueUpdate(),                              // 피흡량 증가
-            //new IncreaseMaxHPDecreaseDamageUpgrade(),               // 최대 체력 증가 + 공격력 감소
-            //new DecreaseMaxHPIncreaseDamageUpgrade(),               // 최대 체력 감소 + 공격력 증가
-            //new CanSurviveOnceUpgrade(),                            // 체력 1로 한번 버티기
+            new CurrentHPUpgrade(),                                 // 현제 체력 증가
+            new MaxHPUpgrade(),                                     // 최대 체력 증가
+            new HPRegenerationUpgrade(),                            // 체력 재생 시작
+            new IncreaseHPRegenerationUpgrade(),                    // 체력 재생량 증가
+            new VampiricUpdate(),                                   // 피흡 시작
+            new VampiricValueUpdate(),                              // 피흡량 증가
+            new IncreaseMaxHPDecreaseDamageUpgrade(),               // 최대 체력 증가 + 공격력 감소
+            new DecreaseMaxHPIncreaseDamageUpgrade(),               // 최대 체력 감소 + 공격력 증가
+            new CanSurviveOnceUpgrade(),                            // 체력 1로 한번 버티기
             
             // Combat Upgrades
             new PlayerDamageUpgrade(),                              // 공격력 증가
@@ -63,28 +63,26 @@ public class UpgradeManager : MonoBehaviour
             new FreeExpUpgrade(),                                   // 경험치 주기
             new SwordRotateDirectionUpgrade(),                      // 칼 회전 방향 변경
             new ExtraExpUpgrade(),                                  // 추가 경험치
+            new UnlockIceEffectUpgrade(),                                  // 추가 경험치
+            new UnlockFireEffectUpgrade(),                                  // 추가 경험치
 
             // Movement Upgrades
-            //new PlayerSpeedUpgrade(),                               // 플레이어 이동속도 증가
-            //new PlayerAndWeaponSpeedUpgrade(),                      // 이동 속도와 칼 회전 속도 증가
-            //new IncreasePlayerSpeedAndDecreaseMaxHPUpgrade(),       // 이동 속도 증가 + 최대 체력 감소
-            //new DecreasePlayerSpeedAndIncreaseMaxHPUpgrade(),       // 이동 속도 감소 + 최대 체력 증가
+            new PlayerSpeedUpgrade(),                               // 플레이어 이동속도 증가
+            new PlayerAndWeaponSpeedUpgrade(),                      // 이동 속도와 칼 회전 속도 증가
+            new IncreasePlayerSpeedAndDecreaseMaxHPUpgrade(),       // 이동 속도 증가 + 최대 체력 감소
+            new DecreasePlayerSpeedAndIncreaseMaxHPUpgrade(),       // 이동 속도 감소 + 최대 체력 증가
 
             //// Weapon Upgrades
-            //new AddSwordUpgrade(),                                  // 칼 1개 추가
-            //new AddSwordsAndDecreaseDamageUpgrade(),                // 칼 2개 추가 + 개별 데미지 감소
-            //new WeaponRotationSpeedUpgrade(),                       // 칼 회전 속도 증가
-            //new WeaponDistanceUpgrade(0.5f, true),                  // 칼 회전 폭 증가
-            //new WeaponDistanceUpgrade(-0.5f, false),                // 칼 회전 폭 감소
+            new AddSwordUpgrade(),                                  // 칼 1개 추가
+            new AddSwordsAndDecreaseDamageUpgrade(),                // 칼 2개 추가 + 개별 데미지 감소
+            new WeaponRotationSpeedUpgrade(),                       // 칼 회전 속도 증가
+            new WeaponDistanceUpgrade(0.5f, true),                  // 칼 회전 폭 증가
+            new WeaponDistanceUpgrade(-0.5f, false),                // 칼 회전 폭 감소
 
             //// Skill Upgrades
-            //new UnlockDashSkillUpgrade(),                           // 대쉬 스킬 잠금해제
-            //new DashSkillDistanceUpgrade(),                         // 대쉬 스킬 이동 거리 증가
-            //new DashSkillCooldownUpgrade(),                         // 대쉬 스킬 쿨타임 감소 
-
-            //불 칼로 변경 - 적 도트딜
-            //얼음 칼로 변경 - 적 슬로우
-            //추가 경험치 - bool 변수로 true일 때 0.1씩 줄까
+            new UnlockDashSkillUpgrade(),                           // 대쉬 스킬 잠금해제
+            new DashSkillDistanceUpgrade(),                         // 대쉬 스킬 이동 거리 증가
+            new DashSkillCooldownUpgrade(),                         // 대쉬 스킬 쿨타임 감소 
         };
     }
 

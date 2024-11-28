@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5078930543096806236}
   - component: {fileID: 2397210862070718242}
   m_Layer: 0
-  m_Name: Weapon 0
+  m_Name: Weapon 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 33fe3010df804cd47882a8c6f8be3587, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79dd684312325fe4ea5ecfba7b3de72c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c19c0d84a45a754f809b1da7cf3b115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 0
+  weaponType: 1
   player: {fileID: 0}
   rotationSpeed: 50
 --- !u!70 &2397210862070718242

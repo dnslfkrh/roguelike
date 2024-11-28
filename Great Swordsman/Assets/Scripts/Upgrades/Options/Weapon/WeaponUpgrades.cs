@@ -44,7 +44,7 @@ namespace Upgrades.Weapons
         }
     }
 
-    public class AddSwordsAndDecreaseDamageUpgrade: IUpgrade
+    public class AddSwordsAndDecreaseDamageUpgrade : IUpgrade
     {
         public string Name => "Add Swords And Decrease Damage";
         public string Description => "새로운 검들을 추가하지만 대미지가 약해집니다";
@@ -53,6 +53,34 @@ namespace Upgrades.Weapons
         {
             components.WeaponManager.IncreaseWeaponCount(2);
             components.Player.ChangeAttackDamage("+", -30);
+        }
+    }
+
+    public class UnlockIceEffectUpgrade : IUpgrade
+    {
+        public string Name => "Unlock Ice Effect";
+        public string Description => "얼음 속성 검의 효과를 잠금 해제합니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            foreach (var weapon in components.WeaponManager.GetWeapons())
+            {
+                weapon.GetComponent<Weapon>().UnlockIce();
+            }
+        }
+    }
+
+    public class UnlockFireEffectUpgrade : IUpgrade
+    {
+        public string Name => "Unlock Fire Effect";
+        public string Description => "불 속성 검의 효과를 잠금 해제합니다";
+
+        public void Apply(PlayerComponents components)
+        {
+            foreach (var weapon in components.WeaponManager.GetWeapons())
+            {
+                weapon.GetComponent<Weapon>().UnlockFire();
+            }
         }
     }
 }

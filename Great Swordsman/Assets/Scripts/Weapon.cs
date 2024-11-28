@@ -16,6 +16,8 @@ public class Weapon : MonoBehaviour
     public Transform player;
     public float rotationSpeed = 100f;
     private float startAngle;
+    private bool isIceUnlocked = false;
+    private bool isFireUnlocked = false;
 
     private void Update()
     {
@@ -58,8 +60,27 @@ public class Weapon : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(GameManager.Instance.player.attackDamage);
+
+                if (isIceUnlocked && weaponType == WeaponType.Ice)
+                {
+                    enemy.SetState(new IceEffect(2f, 3f));
+                }
+                else if (isFireUnlocked && weaponType == WeaponType.Fire)
+                {
+                    enemy.SetState(new FireEffect(3f, 5f));
+                }
             }
         }
+    }
+
+    public void UnlockIce()
+    {
+        isIceUnlocked = true;
+    }
+
+    public void UnlockFire()
+    {
+        isFireUnlocked = true;
     }
 
     public void SetPlayer(Transform playerTransform)
@@ -77,7 +98,13 @@ public class Weapon : MonoBehaviour
     public void ChangeRotationDirection()
     {
         rotationSpeed = -rotationSpeed;
-        Debug.Log("현재 무기 회전 속도: " + rotationSpeed);
-    }
 
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            Vector3 scale = spriteRenderer.transform.localScale;
+            scale.y = -scale.y;
+            spriteRenderer.transform.localScale = scale;
+        }
+    }
 }

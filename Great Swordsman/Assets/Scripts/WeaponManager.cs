@@ -9,7 +9,7 @@ public class WeaponManager : MonoBehaviour
     public int initialWeaponCount;
 
     public GameObject[] weaponPrefabs;
-    private List<GameObject> weapons = new List<GameObject>();
+    public List<GameObject> weapons = new List<GameObject>();
 
     public float knockbackForce = 5;
 
@@ -48,7 +48,7 @@ public class WeaponManager : MonoBehaviour
         weapons.Add(weapon);
     }
 
-    public void IncreaseWeaponCount(float value) // 버그 수정 필요
+    public void IncreaseWeaponCount(float value)
     {
         Weapon playerWeapon = weapons.Count > 0 ? weapons[0].GetComponent<Weapon>() : null;
         Transform playerTransform = playerWeapon != null ? playerWeapon.player : null;
@@ -127,5 +127,10 @@ public class WeaponManager : MonoBehaviour
                 weapon.ChangeRotationDirection();
             }
         }
+    }
+
+    public List<GameObject> GetWeapons()
+    {
+        return weapons;
     }
 }

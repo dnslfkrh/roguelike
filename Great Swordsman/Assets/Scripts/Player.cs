@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        attackDamage = 20.0f;
+        attackDamage = 10.0f;
     }
     private void Start()
     {

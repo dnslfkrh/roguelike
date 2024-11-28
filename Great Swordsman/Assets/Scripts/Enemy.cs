@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     private float lastAttackTime;
     private float knockbackForce;
     private bool isKnockedBack = false;
+    private IEnemyState currentState;
+    private Coroutine burnCoroutine;
 
     private EnemyStatsManager statsManager;
 
@@ -35,7 +37,7 @@ public class Enemy : MonoBehaviour
         knockbackForce = GameManager.Instance.weaponManager.knockbackForce;
     }
 
-    private void InitializeStats()
+    public void InitializeStats()
     {
         moveSpeed = statsManager.GetMoveSpeed(enemyName);
         hp = statsManager.GetHP(enemyName);
@@ -124,7 +126,9 @@ public class Enemy : MonoBehaviour
         Vector2 playerPosition = GameManager.Instance.player.transform.position;
         Vector2 dirVec = (Vector2)transform.position - playerPosition;
 
-        rigid.AddForce(dirVec.normalized * knockbackForce, ForceMode2D.Impulse);
+        float adjustedKnockbackForce = (currentState is FireEffect) ? knockbackForce * 0.33f : knockbackForce;
+
+        rigid.AddForce(dirVec.normalized * adjustedKnockbackForce, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(0.2f);
 
@@ -139,6 +143,73 @@ public class Enemy : MonoBehaviour
         GetComponent<CapsuleCollider2D>().enabled = false;
         GameManager.Instance.playerHP.Vampiric();
         gameObject.SetActive(false);
+    }
+
+    public void SetState(IEnemyState newState)
+    {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
+        currentState = newState;
+
+        if (newState is IceEffect)
+        {
+            spriter.color = Color.cyan;
+        }
+        else if (newState is FireEffect)
+        {
+            spriter.color = Color.red;
+        }
+
+        currentState?.ApplyEffect(this);
+        StartCoroutine(ResetStateAfterDuration(5f));
+    }
+
+    private IEnumerator ResetStateAfterDuration(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        spriter.color = Color.white;
+        currentState?.ResetEffect(this);
+        currentState = null;
+    }
+
+    public void ApplySlow(float duration, float amount)
+    {
+        moveSpeed *= (1 - amount);
+        StartCoroutine(ResetSpeedAfterDuration(duration));
+    }
+
+    private IEnumerator ResetSpeedAfterDuration(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        InitializeStats();
+    }
+
+    public void ApplyBurn(float duration, float damagePerSecond)
+    {
+        if (burnCoroutine != null)
+        {
+            StopCoroutine(burnCoroutine);
+        }
+
+        burnCoroutine = StartCoroutine(BurnEffect(duration, damagePerSecond));
+    }
+
+    private IEnumerator BurnEffect(float duration, float damagePerSecond)
+    {
+        float elapsed = 0;
+
+        while (elapsed < duration)
+        {
+            TakeDamage(damagePerSecond);
+            elapsed += 1f;
+            yield return new WaitForSeconds(1f);
+        }
+
+        burnCoroutine = null;
     }
 
     public float GetHP() => hp;
