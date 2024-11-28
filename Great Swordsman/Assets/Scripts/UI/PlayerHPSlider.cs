@@ -5,17 +5,22 @@ public class PlayerHPSlider : MonoBehaviour
 {
     [SerializeField]
     private PlayerHP playerHP;
+
     [SerializeField]
     private Slider hpSlider;
+
     [SerializeField]
     private Gradient gradient;
+
     [SerializeField]
     private Image fill;
 
     private void Awake()
     {
         if (hpSlider == null)
+        {
             hpSlider = GetComponent<Slider>();
+        }
 
         hpSlider.minValue = 0f;
 

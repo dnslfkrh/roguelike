@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour
     private bool isKnockedBack = false;
     private IEnemyState currentState;
     private Coroutine burnCoroutine;
-
     private EnemyStatsManager statsManager;
 
     private void Awake()

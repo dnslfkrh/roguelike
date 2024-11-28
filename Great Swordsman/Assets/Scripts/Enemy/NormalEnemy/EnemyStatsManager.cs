@@ -42,7 +42,6 @@ public class EnemyStatsManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"Enemy not found: {enemyName}");
             return null;
         }
     }

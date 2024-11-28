@@ -7,14 +7,11 @@ public class PlayerHP : MonoBehaviour
     [SerializeField]
     private float maxHP = 1000f;
     private float currentHP;
-
     public UnityEvent onPlayerDeath;
     public UnityEvent<float> onHealthChanged;
-
     private bool isDead = false;
     private bool isRegenerating = false;
     private bool canSurviveOnce = false;
-
     public float refenerateValue = 30;
     public float vampiricValue = 10;
 

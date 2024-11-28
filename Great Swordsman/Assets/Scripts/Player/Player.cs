@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     public bool isVampiric = false;
     public bool extraExp = false;
     private Vector2 lastNonZeroInputVec;
-
     public Rigidbody2D rigid;
 
     private void Awake()
@@ -18,6 +17,7 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         attackDamage = 10.0f;
     }
+
     private void Start()
     {
         weaponManager.InitializeWeapons(transform);
@@ -53,7 +53,6 @@ public class Player : MonoBehaviour
             attackDamage *= value;
         }
 
-        // 최소 공격력
         if (attackDamage <= 0)
         {
             attackDamage = 10;
@@ -84,7 +83,7 @@ public class Player : MonoBehaviour
         float elapsedTime = 0f;
 
         Vector3 startPosition = transform.position;
-        
+
         while (elapsedTime < dashDuration)
         {
             elapsedTime += Time.deltaTime;

@@ -8,8 +8,6 @@ using Upgrades.Combat;
 using Upgrades.Movement;
 using Upgrades.Weapons;
 using Upgrades.Skill;
-using System.Linq;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -63,8 +61,8 @@ public class UpgradeManager : MonoBehaviour
             new FreeExpUpgrade(),                                   // 경험치 주기
             new SwordRotateDirectionUpgrade(),                      // 칼 회전 방향 변경
             new ExtraExpUpgrade(),                                  // 추가 경험치
-            new UnlockIceEffectUpgrade(),                                  // 추가 경험치
-            new UnlockFireEffectUpgrade(),                                  // 추가 경험치
+            new UnlockIceEffectUpgrade(),                           // 얼음 속성 잠금 해제
+            new UnlockFireEffectUpgrade(),                          // 불 속성 잠금 해제
 
             // Movement Upgrades
             new PlayerSpeedUpgrade(),                               // 플레이어 이동속도 증가
