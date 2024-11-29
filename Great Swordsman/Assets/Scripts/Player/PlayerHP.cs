@@ -4,9 +4,8 @@ using System.Collections;
 
 public class PlayerHP : MonoBehaviour
 {
-    [SerializeField]
-    private float maxHP = 1000f;
-    private float currentHP;
+    public float currentHP;
+    public float maxHP;
     public UnityEvent onPlayerDeath;
     public UnityEvent<float> onHealthChanged;
     private bool isDead = false;
@@ -22,6 +21,12 @@ public class PlayerHP : MonoBehaviour
     {
         currentHP = maxHP;
         UpdateHealthBar();
+    }
+
+    public void SetMaxHealth(float maxHealth)
+    {
+        maxHP = maxHealth;
+        currentHP = maxHP;
     }
 
     public void ChangeHP(string type, int value)

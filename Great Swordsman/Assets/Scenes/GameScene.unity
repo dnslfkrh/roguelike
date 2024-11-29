@@ -5120,6 +5120,52 @@ Transform:
   m_Father: {fileID: 215772005}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &588200214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 588200216}
+  - component: {fileID: 588200215}
+  m_Layer: 0
+  m_Name: CharacterSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &588200215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588200214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d5cb37d896c6e4fb9bf966385f56d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterPrefabs: []
+  spawnPoint: {fileID: 986323496}
+--- !u!4 &588200216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588200214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.2178545, y: 25.975245, z: -0.09633052}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &611062574
 GameObject:
   m_ObjectHideFlags: 0
@@ -5672,10 +5718,11 @@ GameObject:
   m_Component:
   - component: {fileID: 986323496}
   - component: {fileID: 986323495}
-  - component: {fileID: 986323494}
   - component: {fileID: 986323498}
   - component: {fileID: 986323497}
+  - component: {fileID: 986323494}
   - component: {fileID: 986323499}
+  - component: {fileID: 986323501}
   - component: {fileID: 986323500}
   m_Layer: 0
   m_Name: Player
@@ -5847,6 +5894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04c2b24d56e7f0459453f2d11378040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHP: 0
   maxHP: 1000
   onPlayerDeath:
     m_PersistentCalls:
@@ -5872,6 +5920,23 @@ MonoBehaviour:
   dashDistance: 5
   dashCooldown: 5
   isDashUnlocked: 0
+--- !u!114 &986323501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986323493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559cf79a788801f4689589b090dd5c69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 986323493}
+  playerSpriteRenderer: {fileID: 986323495}
+  playerScript: {fileID: 986323494}
+  playerHP: {fileID: 986323499}
+  characterDatabase: {fileID: 11400000, guid: ffb1f8b1ee4e05e4895618a0184c8967, type: 2}
 --- !u!1 &999620242
 GameObject:
   m_ObjectHideFlags: 0

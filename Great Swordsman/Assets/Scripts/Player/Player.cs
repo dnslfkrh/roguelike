@@ -15,12 +15,21 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        attackDamage = 10.0f;
     }
 
     private void Start()
     {
         weaponManager.InitializeWeapons(transform);
+    }
+
+    public void SetMoveSpeed(float moveSpeed)
+    {
+        speed = moveSpeed;
+    }
+
+    public void SetAttackDamage(float CharacterAttackDamage)
+    {
+        attackDamage = CharacterAttackDamage;
     }
 
     private void Update()
