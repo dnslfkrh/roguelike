@@ -518,7 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterGrid: {fileID: 1015923057}
   characterButtonPrefab: {fileID: 1812558843834217546, guid: 3884882e6bfd90e4cb33841df555f5e3, type: 3}
-  characterDatabase: {fileID: 11400000, guid: ffb1f8b1ee4e05e4895618a0184c8967, type: 2}
+  characterDatabase: {fileID: 11400000, guid: 63352908c5c07954ab01e9ed3c0f4b02, type: 2}
 --- !u!4 &1472568685
 Transform:
   m_ObjectHideFlags: 0

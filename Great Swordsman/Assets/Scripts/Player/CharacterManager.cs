@@ -13,7 +13,8 @@ public class CharacterManager : MonoBehaviour
     public PlayerHP playerHP;
 
     [Header("Character Database")]
-    public CharacterDatabase characterDatabase;
+    [SerializeField]
+    private CharacterDatabase characterDatabase;
 
     private void Start()
     {
@@ -22,6 +23,12 @@ public class CharacterManager : MonoBehaviour
 
     private void ApplySelectedCharacter()
     {
+        if (characterDatabase == null)
+        {
+            Debug.LogError("CharacterDatabase is not assigned in CharacterManager!");
+            return;
+        }
+
         string selectedCharacterName = PlayerPrefs.GetString("SelectedCharacterName");
 
         CharacterData selectedCharacter = characterDatabase.characters.Find(character => character.characterName == selectedCharacterName);

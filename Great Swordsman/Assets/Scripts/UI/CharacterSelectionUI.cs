@@ -16,7 +16,7 @@ public class CharacterSelectionUI : MonoBehaviour
         GenerateCharacterButtons();
     }
 
-    private void GenerateCharacterButtons()
+    public void GenerateCharacterButtons()
     {
         for (int i = 0; i < characterDatabase.characters.Count; i++)
         {
@@ -34,6 +34,8 @@ public class CharacterSelectionUI : MonoBehaviour
     private void OnCharacterSelected(string characterName)
     {
         PlayerPrefs.SetString("SelectedCharacterName", characterName);
+        PlayerPrefs.Save();
+
         Debug.Log($"Character {characterName} Selected!");
 
         UnityEngine.SceneManagement.SceneManager.LoadScene("MapSelectScene");

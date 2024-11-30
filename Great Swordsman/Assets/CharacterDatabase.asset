@@ -9,37 +9,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: d74dd00e2475b4546adcfb0e3edc15ac, type: 3}
   m_Name: CharacterDatabase
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterDatabase
+  m_EditorClassIdentifier: 
   characters:
   - characterName: Zoro
     characterSprite: {fileID: 21300000, guid: 0b8487713b6c2f2488f41c39ece45e73, type: 3}
-    maxHP: 900
+    maxHP: 800
     attackDamage: 20
     moveSpeed: 5
   - characterName: Tashigi
     characterSprite: {fileID: 21300000, guid: 39c25482143a8934496032e38fa92d0e, type: 3}
-    maxHP: 700
+    maxHP: 600
     attackDamage: 15
-    moveSpeed: 6
+    moveSpeed: 7
   - characterName: Vista
     characterSprite: {fileID: 21300000, guid: 38f0b8ae578fb694eb01bcce33ec3a23, type: 3}
     maxHP: 1000
     attackDamage: 25
-    moveSpeed: 5
+    moveSpeed: 4
   - characterName: Shiryu
     characterSprite: {fileID: 21300000, guid: 3f1277ea12b6ba74a9283b917ea4896f, type: 3}
-    maxHP: 1100
-    attackDamage: 25
+    maxHP: 1200
+    attackDamage: 20
     moveSpeed: 4
   - characterName: Ryuma
     characterSprite: {fileID: 21300000, guid: de4d16ca2d716084ca9db658fc263823, type: 3}
-    maxHP: 800
+    maxHP: 900
     attackDamage: 30
     moveSpeed: 6
   - characterName: King
     characterSprite: {fileID: 21300000, guid: ab7afe4756770ef42920c7ec1b132081, type: 3}
-    maxHP: 1200
+    maxHP: 1300
     attackDamage: 25
-    moveSpeed: 3
+    moveSpeed: 4
