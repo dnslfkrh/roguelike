@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8891318263771889069}
   - component: {fileID: 4513511858305654292}
   m_Layer: 5
-  m_Name: CharacterSelectButton
+  m_Name: SelectButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -36,6 +36,6 @@ public class CharacterSelectionUI : MonoBehaviour
         PlayerPrefs.SetString("SelectedCharacterName", characterName);
         Debug.Log($"Character {characterName} Selected!");
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MapSelectScene");
     }
 }
