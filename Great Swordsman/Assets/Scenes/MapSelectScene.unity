@@ -430,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapGrid: {fileID: 1363096624}
   mapButtonPrefab: {fileID: 1812558843834217546, guid: 3884882e6bfd90e4cb33841df555f5e3, type: 3}
-  mapDatabase: {fileID: 11400000, guid: a24630ebaf27645479731a1d3d10b068, type: 2}
+  mapDatabase: {fileID: 11400000, guid: f123f91b3b1fa1e4ea49b3aaf418870b, type: 2}
 --- !u!1 &2026364385
 GameObject:
   m_ObjectHideFlags: 0
