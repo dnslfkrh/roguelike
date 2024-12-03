@@ -6,7 +6,7 @@ public class BossEnemy : MonoBehaviour
 {
     [SerializeField]
     private string bossName;
-   
+
     public Rigidbody2D target;
     public Rigidbody2D rigid;
     public BossStatsManager statsManager;
@@ -22,7 +22,7 @@ public class BossEnemy : MonoBehaviour
 
     private float minChaseDistance;
     private float maxChaseDistance;
-    private float knockbackForce;
+    private float knockbackForce = 1;
     private bool isLive = true;
     private bool isKnockedBack = false;
     private bool isIdleMoving = false;
@@ -33,8 +33,21 @@ public class BossEnemy : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         statsManager = FindObjectOfType<BossStatsManager>();
-        bossHPSlider = GetComponentInChildren<Slider>();
-        knockbackForce = GameManager.Instance.weaponManager.knockbackForce;
+
+        Canvas canvas = FindObjectOfType<Canvas>();
+        if (canvas != null)
+        {
+            if (bossHPSlider != null)
+            {
+                bossHPSlider = Instantiate(bossHPSlider, canvas.transform);
+
+                BossHP bossHPComponent = bossHPSlider.GetComponent<BossHP>();
+                if (bossHPComponent != null)
+                {
+                    bossHPComponent.target = this.transform;
+                }
+            }
+        }
     }
 
     public void Start()
@@ -84,6 +97,15 @@ public class BossEnemy : MonoBehaviour
         }
     }
 
+    private void UpdateHPSlider()
+    {
+        if (bossHPSlider != null)
+        {
+            bossHPSlider.maxValue = maxHP;
+            bossHPSlider.value = hp;
+        }
+    }
+
     private void StayIdle()
     {
         if (!isIdleMoving)
@@ -114,21 +136,10 @@ public class BossEnemy : MonoBehaviour
 
     private void ChasePlayer()
     {
-        Vector2 dirVec = target.position - rigid.position;
-        Vector2 nextVec = dirVec.normalized * moveSpeed * Time.deltaTime;
-        rigid.MovePosition(rigid.position + nextVec);
-        rigid.velocity = Vector2.zero;
+        Vector2 direction = (target.position - rigid.position).normalized;
+        rigid.velocity = (direction * moveSpeed) / 10;
 
         spriter.flipX = target.position.x < rigid.position.x;
-    }
-
-    private void UpdateHPSlider()
-    {
-        if (bossHPSlider != null)
-        {
-            bossHPSlider.maxValue = maxHP;
-            bossHPSlider.value = hp;
-        }
     }
 
     public void TakeDamage(float damage)
@@ -139,7 +150,10 @@ public class BossEnemy : MonoBehaviour
         }
 
         hp -= damage;
+
         StartCoroutine(Knockback());
+
+        GameManager.Instance.playerHP.Vampiric();
 
         UpdateHPSlider();
 
@@ -169,8 +183,7 @@ public class BossEnemy : MonoBehaviour
     {
         isLive = false;
         GameManager.Instance.GetExp();
-        gameObject.SetActive(false);
-        GameManager.Instance.playerHP.Vampiric();
+        Destroy(gameObject);
     }
 
     public void OnCollisionStay2D(Collision2D collision)
