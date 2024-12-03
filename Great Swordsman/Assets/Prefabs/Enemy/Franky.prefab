@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1134279230144864388}
   - component: {fileID: 2606852259694311396}
   - component: {fileID: 193540346494490705}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Franky
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Franky
-  target: {fileID: 0}
 --- !u!114 &193540346494490705
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class CharacterManager : MonoBehaviour
     [SerializeField]
     private CharacterDatabase characterDatabase;
 
-    private void Start()
+    public void Start()
     {
         ApplySelectedCharacter();
     }

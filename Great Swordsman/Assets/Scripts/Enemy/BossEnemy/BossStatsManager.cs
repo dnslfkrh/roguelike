@@ -25,20 +25,21 @@ public class BossStatsManager : MonoBehaviour
 {
     private Dictionary<string, BossStats> bossStatsDictionary = new Dictionary<string, BossStats>();
 
-    private void Awake()
+    public void Awake()
     {
         InitializeBossStats();
     }
 
     private void InitializeBossStats()
     {
-        bossStatsDictionary.Add("Mihawk", new BossStats(1400f, 400f, 40f, 24f, 20f, 10f));
-        bossStatsDictionary.Add("Shanks", new BossStats(1800f, 800f, 20f, 16f, 22f, 8f));
-        bossStatsDictionary.Add("BlackBeard", new BossStats(1600f, 600f, 30f, 20f, 21f, 9f));
-        bossStatsDictionary.Add("Aokiji", new BossStats(1500f, 500f, 35f, 22f, 19f, 11f));
-        bossStatsDictionary.Add("Doflamingo", new BossStats(1700f, 700f, 25f, 18f, 23f, 7f));
-        bossStatsDictionary.Add("BigMom", new BossStats(2000f, 1000f, 15f, 14f, 25f, 5f));
+        bossStatsDictionary.Add("Mihawk", new BossStats(1400f, 400f, 15f, 24f, 10f, 20f));
+        bossStatsDictionary.Add("Shanks", new BossStats(1800f, 800f, 18f, 16f, 9f, 22f));
+        bossStatsDictionary.Add("BlackBeard", new BossStats(1600f, 600f, 12f, 20f, 9f, 21f));
+        bossStatsDictionary.Add("Aokiji", new BossStats(1500f, 500f, 35f, 14f, 9f, 19f));
+        bossStatsDictionary.Add("Doflamingo", new BossStats(1700f, 700f, 16f, 18f, 23f, 7f));
+        bossStatsDictionary.Add("BigMom", new BossStats(2000f, 1000f, 10f, 14f, 9f, 25f));
     }
+
 
     public BossStats GetBossStats(string bossName)
     {
@@ -65,9 +66,13 @@ public class BossStatsManager : MonoBehaviour
         return GetBossStats(bossName)?.AttackSpeed ?? 0f;
     }
 
-    public (float min, float max) GetChaseDistances(string bossName)
+    public float GetMinChaseDistance(string bossName)
     {
-        var stats = GetBossStats(bossName);
-        return stats != null ? (stats.MinChaseDistance, stats.MaxChaseDistance) : (0f, 0f);
+        return GetBossStats(bossName)?.MinChaseDistance ?? 0f;
+    }
+
+    public float GetMaxChaseDistance(string bossName)
+    {
+        return GetBossStats(bossName)?.MaxChaseDistance ?? 0f;
     }
 }

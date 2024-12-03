@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1702979217382767313}
   - component: {fileID: 1062686915122739047}
   - component: {fileID: 2605504642453640575}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Usopp
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Usopp
-  target: {fileID: 0}
 --- !u!114 &2605504642453640575
 MonoBehaviour:
   m_ObjectHideFlags: 0

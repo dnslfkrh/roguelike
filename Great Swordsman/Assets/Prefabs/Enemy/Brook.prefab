@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9033501235030578910}
   - component: {fileID: 2142470292108586078}
   - component: {fileID: 2720535349627766377}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Brook
   m_TagString: Enemy
   m_Icon: {fileID: 0}

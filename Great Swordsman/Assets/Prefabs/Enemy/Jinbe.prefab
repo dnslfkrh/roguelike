@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3400523757812320162}
   - component: {fileID: 4406361664479097032}
   - component: {fileID: 5253623809268143540}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jinbe
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Jinbe
-  target: {fileID: 0}
 --- !u!114 &5253623809268143540
 MonoBehaviour:
   m_ObjectHideFlags: 0

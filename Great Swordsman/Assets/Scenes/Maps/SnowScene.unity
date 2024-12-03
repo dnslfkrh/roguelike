@@ -5338,7 +5338,7 @@ MonoBehaviour:
   playerSpriteRenderer: {fileID: 779427516}
   playerScript: {fileID: 779427513}
   playerHP: {fileID: 779427512}
-  characterDatabase: {fileID: 11400000, guid: ffb1f8b1ee4e05e4895618a0184c8967, type: 2}
+  characterDatabase: {fileID: 11400000, guid: 63352908c5c07954ab01e9ed3c0f4b02, type: 2}
 --- !u!114 &779427512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20341,7 +20341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52291d202e62d3e4f8c61aa717a03218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 0.4
+  spawnInterval: 0.8
   spawnPoints: []
 --- !u!1 &2009491292
 GameObject:

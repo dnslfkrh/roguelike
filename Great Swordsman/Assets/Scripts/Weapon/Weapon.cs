@@ -71,6 +71,14 @@ public class Weapon : MonoBehaviour
                 }
             }
         }
+        else if (collision.CompareTag("Boss"))
+        {
+            BossEnemy boss = collision.GetComponent<BossEnemy>();
+            if (boss != null)
+            {
+                boss.TakeDamage(GameManager.Instance.player.attackDamage);
+            }
+        }
     }
 
     public void UnlockIce()

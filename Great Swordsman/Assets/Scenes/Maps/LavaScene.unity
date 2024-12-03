@@ -5153,7 +5153,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.051724136, y: 0.051724136, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -9777,7 +9777,7 @@ MonoBehaviour:
   playerSpriteRenderer: {fileID: 337167158}
   playerScript: {fileID: 337167157}
   playerHP: {fileID: 337167156}
-  characterDatabase: {fileID: 11400000, guid: ffb1f8b1ee4e05e4895618a0184c8967, type: 2}
+  characterDatabase: {fileID: 11400000, guid: 63352908c5c07954ab01e9ed3c0f4b02, type: 2}
 --- !u!70 &337167161
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -15048,7 +15048,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.051724136, y: 0.051724136, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -24577,7 +24577,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.051724136, y: 0.051724136, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -29463,7 +29463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52291d202e62d3e4f8c61aa717a03218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 0.4
+  spawnInterval: 0.8
   spawnPoints: []
 --- !u!1 &1599788578
 GameObject:
@@ -34656,7 +34656,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.051724136, y: 0.051724136, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
