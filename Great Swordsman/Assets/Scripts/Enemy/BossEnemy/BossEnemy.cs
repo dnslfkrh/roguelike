@@ -85,7 +85,6 @@ public class BossEnemy : MonoBehaviour
         }
 
         float distanceToPlayer = Vector2.Distance(rigid.position, target.position);
-        Debug.Log(distanceToPlayer);
 
         if (distanceToPlayer <= minChaseDistance || distanceToPlayer > maxChaseDistance)
         {
@@ -182,7 +181,7 @@ public class BossEnemy : MonoBehaviour
     private void Die()
     {
         isLive = false;
-        GameManager.Instance.GetExp();
+        GameManager.Instance.GetExp(10);
         Destroy(gameObject);
         Destroy(bossHPSlider.gameObject);
     }

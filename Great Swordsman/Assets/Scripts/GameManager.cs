@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,19 +42,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Update()
     {
         gameTime += Time.deltaTime;
 
-        if (gameTime > maxGameTime)
+        if (gameTime >= maxGameTime)
         {
             gameTime = maxGameTime;
+            GameClear();
         }
     }
 
-    public void GetExp()
+    public void GetExp(int value)
     {
-        exp++;
+        exp += value;
 
         if (player.extraExp == true)
         {
@@ -79,5 +81,15 @@ public class GameManager : MonoBehaviour
         exp = 0;
 
         upgradeManager.ShowLevelUpOptions();
+    }
+
+    public void GameClear()
+    {
+        SceneManager.LoadScene("Clear");
+    }
+
+    public void GameDefeat()
+    {
+        SceneManager.LoadScene("Defeat");
     }
 }

@@ -137,7 +137,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        GameManager.Instance.GetExp();
+        GameManager.Instance.GetExp(1);
         isLive = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
         GameManager.Instance.playerHP.Vampiric();

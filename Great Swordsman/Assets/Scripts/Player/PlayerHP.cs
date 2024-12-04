@@ -115,7 +115,8 @@ public class PlayerHP : MonoBehaviour
 
         isDead = true;
         Debug.Log("Player died!");
-        onPlayerDeath?.Invoke();
+
+        GameManager.Instance.GameDefeat();
     }
 
     public void CanSurviveOnce()
