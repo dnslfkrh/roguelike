@@ -184,6 +184,7 @@ public class BossEnemy : MonoBehaviour
         isLive = false;
         GameManager.Instance.GetExp();
         Destroy(gameObject);
+        Destroy(bossHPSlider.gameObject);
     }
 
     public void OnCollisionStay2D(Collision2D collision)
