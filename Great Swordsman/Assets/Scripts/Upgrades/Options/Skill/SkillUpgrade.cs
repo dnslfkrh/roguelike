@@ -21,7 +21,7 @@ namespace Upgrades.Skill
 
         public void Apply(PlayerComponents components)
         {
-            components.SkillManager.IncreaseDashDistance();
+            components.SkillManager.IncreaseDashDistance(2);
         }
     }
 
@@ -32,7 +32,7 @@ namespace Upgrades.Skill
 
         public void Apply(PlayerComponents components)
         {
-            components.SkillManager.DecreaseDashCooldown();
+            components.SkillManager.DecreaseDashCooldown(2);
         }
     }
 }

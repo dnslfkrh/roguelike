@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [Header("Player Info")]
     public int level;
     public float exp = 0;
-    public int[] nextExp = { 10, 20, 30, 60, 150, 210, 280, 360, 450, 600 };
+    public int[] nextExp = { 3, 3, 3, 5, 5, 5, 5, 5, 5, 5 };
 
     public static GameManager Instance
     {
@@ -83,11 +83,13 @@ public class GameManager : MonoBehaviour
 
     public void GameClear()
     {
+        gameTime = 0;
         SceneManager.LoadScene("Clear");
     }
 
     public void GameDefeat()
     {
+        gameTime = 0;
         SceneManager.LoadScene("Defeat");
     }
 }

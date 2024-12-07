@@ -42,13 +42,13 @@ public class SkillManager : MonoBehaviour
         isDashUnlocked = true;
     }
 
-    public void IncreaseDashDistance()
+    public void IncreaseDashDistance(int value)
     {
-        dashDistance += 2;
+        dashDistance += value;
     }
 
-    public void DecreaseDashCooldown()
+    public void DecreaseDashCooldown(int value)
     {
-        dashCooldown -= 2;
+        dashCooldown -= value;
     }
 }
