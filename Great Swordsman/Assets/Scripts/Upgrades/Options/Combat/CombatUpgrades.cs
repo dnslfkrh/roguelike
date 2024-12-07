@@ -59,7 +59,7 @@ namespace Upgrades.Combat
         }
     }
 
-    public class SwordRotateDirectionUpgrade: IUpgrade
+    public class SwordRotateDirectionUpgrade : IUpgrade
     {
         public string Name => "Change Sword Rotate Direction";
         public string Description => "칼 회전 방향을 바꿉니다";

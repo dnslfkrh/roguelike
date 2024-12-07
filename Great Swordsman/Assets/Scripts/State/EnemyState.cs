@@ -46,6 +46,6 @@ public class FireEffect : IEnemyState
 
     public void ResetEffect(Enemy enemy)
     {
-        // 뭐 할게 있나..
+
     }
 }

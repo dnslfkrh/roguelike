@@ -25,7 +25,6 @@ public class CharacterManager : MonoBehaviour
     {
         if (characterDatabase == null)
         {
-            Debug.LogError("CharacterDatabase is not assigned in CharacterManager!");
             return;
         }
 
@@ -40,10 +39,6 @@ public class CharacterManager : MonoBehaviour
             playerHP.SetMaxHealth(selectedCharacter.maxHP);
             playerScript.SetMoveSpeed(selectedCharacter.moveSpeed);
             playerScript.SetAttackDamage(selectedCharacter.attackDamage);
-        }
-        else
-        {
-            Debug.LogWarning("Selected character not found!");
         }
     }
 }

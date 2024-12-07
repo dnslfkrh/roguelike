@@ -72,8 +72,6 @@ public class BossEnemy : MonoBehaviour
         minChaseDistance = stats.MinChaseDistance;
         maxChaseDistance = stats.MaxChaseDistance;
 
-        Debug.Log(minChaseDistance + " 이하일 때 따라가고, " + maxChaseDistance + " 이상일 때 따라감");
-
         UpdateHPSlider();
     }
 

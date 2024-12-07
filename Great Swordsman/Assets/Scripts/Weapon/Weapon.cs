@@ -31,18 +31,16 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void ChangeRotationSpeed(string type, int value) // 무기마다 실행
+    public void ChangeRotationSpeed(string type, int value)
     {
         if (type == "+")
         {
             rotationSpeed += value;
-            Debug.Log("무기 회전 속도 증가: " + rotationSpeed);
 
         }
         else if (type == "/")
         {
             rotationSpeed /= value;
-            Debug.Log("무기 회전 속도 감소: " + rotationSpeed);
         }
     }
 

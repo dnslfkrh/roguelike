@@ -43,7 +43,7 @@ public class WeaponManager : MonoBehaviour
         }
 
         weaponComponent.SetPlayer(playerTransform);
-        weaponComponent.SetInitialAngle(angle); 
+        weaponComponent.SetInitialAngle(angle);
 
         weapons.Add(weapon);
     }
@@ -114,7 +114,6 @@ public class WeaponManager : MonoBehaviour
     public void IncreaseKnockbackForce()
     {
         knockbackForce += 5;
-        Debug.Log("이제 적을 더 멀리 밀어냅니다: " + knockbackForce);
     }
 
     public void ChangeRotationDirection()

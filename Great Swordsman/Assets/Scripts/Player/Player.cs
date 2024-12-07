@@ -51,8 +51,6 @@ public class Player : MonoBehaviour
 
     public void ChangeAttackDamage(string type, int value)
     {
-        Debug.Log("변경 전 공격력: " + attackDamage);
-
         if (type == "+")
         {
             attackDamage += value;
@@ -66,15 +64,11 @@ public class Player : MonoBehaviour
         {
             attackDamage = 10;
         }
-
-        Debug.Log("공격력 변경: " + attackDamage);
     }
 
     public void IncreaseMoveSpeed(int value)
     {
-        Debug.Log("증가 전 이동 속도: " + speed);
         speed += value;
-        Debug.Log("이동 속도 증가: " + speed);
     }
 
     public void Dash(float distance)
@@ -122,7 +116,6 @@ public class Player : MonoBehaviour
     public void GetExpFromOption()
     {
         GameManager.Instance.exp += 3;
-        Debug.Log("경험치 받음");
 
         GameManager.Instance.CheckLevelUp();
     }
@@ -130,6 +123,5 @@ public class Player : MonoBehaviour
     public void ChangeExtraExp()
     {
         extraExp = true;
-        Debug.Log("지금부터 추가 경험치");
     }
 }

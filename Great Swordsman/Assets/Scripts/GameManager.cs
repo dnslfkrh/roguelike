@@ -62,8 +62,6 @@ public class GameManager : MonoBehaviour
             exp += 0.5f;
         }
 
-        Debug.Log(exp);
-
         CheckLevelUp();
     }
 

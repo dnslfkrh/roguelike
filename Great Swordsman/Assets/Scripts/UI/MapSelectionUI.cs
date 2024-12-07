@@ -33,7 +33,6 @@ public class MapSelectionUI : MonoBehaviour
     public void OnMapSelected(string mapName)
     {
         PlayerPrefs.SetString("SelectedMapName", mapName);
-        Debug.Log($"Map {mapName} Selected!");
 
         switch (mapName)
         {
@@ -50,7 +49,6 @@ public class MapSelectionUI : MonoBehaviour
                 SceneManager.LoadScene("CastleScene");
                 break;
             default:
-                Debug.LogError($"Invalid map name: {mapName}");
                 break;
         }
     }

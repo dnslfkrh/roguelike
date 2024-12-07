@@ -65,10 +65,8 @@ public class PlayerHP : MonoBehaviour
         if (currentHP > maxHP)
         {
             currentHP = maxHP;
-            Debug.Log("현재 체력을 최대 체력에: " + currentHP);
         }
 
-        Debug.Log("최대 체력 반토막: " + maxHP);
         UpdateHealthBar();
     }
 
@@ -80,7 +78,6 @@ public class PlayerHP : MonoBehaviour
         }
 
         currentHP = Mathf.Max(0f, currentHP - damage);
-        Debug.Log("공격 받아서 현재 체력: " + currentHP);
 
         UpdateHealthBar();
 
@@ -93,7 +90,6 @@ public class PlayerHP : MonoBehaviour
     private void UpdateHealthBar()
     {
         float healthRatio = (float)currentHP / maxHP;
-        Debug.Log($"currentHP: {currentHP}, maxHP: {maxHP}, healthRatio: {healthRatio}");
         onHealthChanged?.Invoke(healthRatio);
     }
 
@@ -108,13 +104,11 @@ public class PlayerHP : MonoBehaviour
         {
             currentHP = 1;
             canSurviveOnce = false;
-            Debug.Log("견뎌");
             UpdateHealthBar();
             return;
         }
 
         isDead = true;
-        Debug.Log("Player died!");
 
         GameManager.Instance.GameDefeat();
     }
@@ -136,7 +130,6 @@ public class PlayerHP : MonoBehaviour
     public void ChangeRefenerateValue(float value)
     {
         refenerateValue += value;
-        Debug.Log("체력 재생력 증가: " + refenerateValue);
     }
 
     private IEnumerator RegenerateHealth()
@@ -146,12 +139,10 @@ public class PlayerHP : MonoBehaviour
             if (currentHP >= maxHP || currentHP + refenerateValue >= maxHP)
             {
                 currentHP = maxHP;
-                Debug.Log("체력이 꽉차서 회복 안해" + currentHP);
             }
             else
             {
                 currentHP += refenerateValue;
-                Debug.Log("체력이 조금 회복" + currentHP);
             }
 
             UpdateHealthBar();
@@ -163,7 +154,6 @@ public class PlayerHP : MonoBehaviour
         if (GameManager.Instance.player.isVampiric == true)
         {
             currentHP += (GameManager.Instance.player.attackDamage / vampiricValue);
-            Debug.Log("피해 흡혈");
             UpdateHealthBar();
         }
     }
@@ -171,7 +161,6 @@ public class PlayerHP : MonoBehaviour
     public void ChangeVampiricValue()
     {
         vampiricValue -= 5;
-        Debug.Log("피해 흡혈 감소" + vampiricValue);
     }
 
     public float GetCurrentHealth() => currentHP;
