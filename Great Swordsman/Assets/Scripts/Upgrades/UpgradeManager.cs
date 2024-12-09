@@ -29,10 +29,10 @@ public class UpgradeManager : MonoBehaviour
     private void InitializePlayerComponents()
     {
         playerComponents = new PlayerComponents(
-            GameManager.Instance.player,
-            GameManager.Instance.playerHP,
-            GameManager.Instance.weaponManager,
-            GameManager.Instance.skillManager
+            GameManager.Instance.Player,
+            GameManager.Instance.PlayerHP,
+            GameManager.Instance.WeaponManager,
+            GameManager.Instance.SkillManager
         );
     }
 

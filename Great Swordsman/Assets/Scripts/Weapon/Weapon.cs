@@ -57,7 +57,7 @@ public class Weapon : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.TakeDamage(GameManager.Instance.player.attackDamage);
+                enemy.TakeDamage(GameManager.Instance.Player.attackDamage);
 
                 if (isIceUnlocked && weaponType == WeaponType.Ice)
                 {
@@ -74,7 +74,7 @@ public class Weapon : MonoBehaviour
             BossEnemy boss = collision.GetComponent<BossEnemy>();
             if (boss != null)
             {
-                boss.TakeDamage(GameManager.Instance.player.attackDamage);
+                boss.TakeDamage(GameManager.Instance.Player.attackDamage);
             }
         }
     }

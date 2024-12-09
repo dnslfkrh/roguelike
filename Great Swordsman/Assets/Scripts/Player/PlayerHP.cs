@@ -151,9 +151,9 @@ public class PlayerHP : MonoBehaviour
     }
     public void Vampiric()
     {
-        if (GameManager.Instance.player.isVampiric == true)
+        if (GameManager.Instance.Player.isVampiric == true)
         {
-            currentHP += (GameManager.Instance.player.attackDamage / vampiricValue);
+            currentHP += (GameManager.Instance.Player.attackDamage / vampiricValue);
             UpdateHealthBar();
         }
     }

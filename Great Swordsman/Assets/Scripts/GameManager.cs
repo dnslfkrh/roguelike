@@ -5,14 +5,25 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     public Enemy[] enemyPrefabs;
-
     private static GameManager instance;
-    public Player player;
-    public PlayerHP playerHP;
-    public PoolManager pool;
-    public UpgradeManager upgradeManager;
-    public WeaponManager weaponManager;
-    public SkillManager skillManager;
+
+    [System.Serializable]
+    public class PersistentData
+    {
+        public string selectedCharacter;
+        public string selectedMap;
+        public int currentLevel;
+        public float currentExp;
+    }
+
+    public PersistentData persistentData = new PersistentData();
+
+    public Player Player => FindObjectOfType<Player>();
+    public PlayerHP PlayerHP => FindObjectOfType<PlayerHP>();
+    public PoolManager Pool => FindObjectOfType<PoolManager>();
+    public UpgradeManager UpgradeManager => FindObjectOfType<UpgradeManager>();
+    public WeaponManager WeaponManager => FindObjectOfType<WeaponManager>();
+    public SkillManager SkillManager => FindObjectOfType<SkillManager>();
 
     [Header("Game Info")]
     public float gameTime;
@@ -30,7 +41,6 @@ public class GameManager : MonoBehaviour
             if (instance == null)
             {
                 instance = FindObjectOfType<GameManager>();
-
                 if (instance == null)
                 {
                     GameObject singletonObj = new GameObject("GameManager");
@@ -42,10 +52,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Update()
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Update()
     {
         gameTime += Time.deltaTime;
-
         if (gameTime >= maxGameTime)
         {
             gameTime = maxGameTime;
@@ -53,15 +73,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SaveSelectedCharacter(string characterName)
+    {
+        persistentData.selectedCharacter = characterName;
+    }
+
+    public void SaveSelectedMap(string mapName)
+    {
+        persistentData.selectedMap = mapName;
+    }
+
     public void GetExp(int value)
     {
         exp += value;
-
-        if (player.extraExp == true)
+        if (Player.extraExp == true)
         {
             exp += 0.5f;
         }
-
         CheckLevelUp();
     }
 
@@ -77,19 +105,25 @@ public class GameManager : MonoBehaviour
     {
         level++;
         exp = 0;
-
-        upgradeManager.ShowLevelUpOptions();
+        UpgradeManager.ShowLevelUpOptions();
     }
 
     public void GameClear()
     {
-        gameTime = 0;
+        ResetGame();
         SceneManager.LoadScene("Clear");
     }
 
     public void GameDefeat()
     {
-        gameTime = 0;
+        ResetGame();
         SceneManager.LoadScene("Defeat");
+    }
+
+    private void ResetGame()
+    {
+        gameTime = 0;
+        exp = 0;
+        level = 0;
     }
 }

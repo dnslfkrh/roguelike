@@ -29,7 +29,7 @@ public class BossEnemy : MonoBehaviour
 
     public void Awake()
     {
-        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
+        target = GameManager.Instance.Player.GetComponent<Rigidbody2D>();
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         statsManager = FindObjectOfType<BossStatsManager>();
@@ -150,7 +150,7 @@ public class BossEnemy : MonoBehaviour
 
         StartCoroutine(Knockback());
 
-        GameManager.Instance.playerHP.Vampiric();
+        GameManager.Instance.PlayerHP.Vampiric();
 
         UpdateHPSlider();
 
@@ -165,7 +165,7 @@ public class BossEnemy : MonoBehaviour
         isKnockedBack = true;
         rigid.velocity = Vector2.zero;
 
-        Vector2 playerPosition = GameManager.Instance.player.transform.position;
+        Vector2 playerPosition = GameManager.Instance.Player.transform.position;
         Vector2 dirVec = (Vector2)transform.position - playerPosition;
 
         rigid.AddForce(dirVec.normalized * knockbackForce, ForceMode2D.Impulse);

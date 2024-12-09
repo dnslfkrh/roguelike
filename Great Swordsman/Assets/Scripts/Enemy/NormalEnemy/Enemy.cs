@@ -26,14 +26,14 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
+        target = GameManager.Instance.Player.GetComponent<Rigidbody2D>();
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         statsManager = FindObjectOfType<EnemyStatsManager>();
 
         InitializeStats();
 
-        knockbackForce = GameManager.Instance.weaponManager.knockbackForce;
+        knockbackForce = GameManager.Instance.WeaponManager.knockbackForce;
     }
 
     public void InitializeStats()
@@ -122,7 +122,7 @@ public class Enemy : MonoBehaviour
         isKnockedBack = true;
         rigid.velocity = Vector2.zero;
 
-        Vector2 playerPosition = GameManager.Instance.player.transform.position;
+        Vector2 playerPosition = GameManager.Instance.Player.transform.position;
         Vector2 dirVec = (Vector2)transform.position - playerPosition;
 
         float adjustedKnockbackForce = (currentState is FireEffect) ? knockbackForce * 0.33f : knockbackForce;
@@ -140,7 +140,7 @@ public class Enemy : MonoBehaviour
         GameManager.Instance.GetExp(1);
         isLive = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
-        GameManager.Instance.playerHP.Vampiric();
+        GameManager.Instance.PlayerHP.Vampiric();
         gameObject.SetActive(false);
     }
 
