@@ -161,6 +161,10 @@ public class Enemy : MonoBehaviour
         {
             spriter.color = Color.red;
         }
+        else
+        {
+            spriter.color = Color.white;
+        }
 
         currentState?.ApplyEffect(this);
         StartCoroutine(ResetStateAfterDuration(5f));

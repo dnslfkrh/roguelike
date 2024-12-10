@@ -25,32 +25,7 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        try
-        {
-            if (GameManager.Instance == null)
-            {
-                Debug.LogError("GameManager Instance is null!");
-                return;
-            }
-
-            if (GameManager.Instance.Pool == null)
-            {
-                Debug.LogError("Pool Manager is null!");
-                return;
-            }
-
-            if (GameManager.Instance.Pool.prefabs.Length == 0)
-            {
-                Debug.LogError("No prefabs in pool!");
-                return;
-            }
-
-            GameObject enemy = GameManager.Instance.Pool.Get(Random.Range(0, GameManager.Instance.Pool.prefabs.Length));
-            enemy.transform.position = spawnPoints[Random.Range(1, spawnPoints.Length)].position;
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError($"Error in Spawn method: {e.Message}");
-        }
+        GameObject enemy = GameManager.Instance.Pool.Get(Random.Range(0, GameManager.Instance.Pool.prefabs.Length));
+        enemy.transform.position = spawnPoints[Random.Range(1, spawnPoints.Length)].position;
     }
 }

@@ -40,36 +40,36 @@ public class UpgradeManager : MonoBehaviour
     {
         availableUpgrades = new List<IUpgrade>
         {
-            new CurrentHPUpgrade(),                                 // 현제 체력 증가
-            new MaxHPUpgrade(),                                     // 최대 체력 증가
-            new HPRegenerationUpgrade(),                            // 체력 재생 시작
-            new IncreaseHPRegenerationUpgrade(),                    // 체력 재생량 증가
-            new VampiricUpdate(),                                   // 피흡 시작
-            new VampiricValueUpdate(),                              // 피흡량 증가
-            new IncreaseMaxHPDecreaseDamageUpgrade(),               // 최대 체력 증가 + 공격력 감소
-            new DecreaseMaxHPIncreaseDamageUpgrade(),               // 최대 체력 감소 + 공격력 증가
-            new CanSurviveOnceUpgrade(),                            // 체력 1로 한번 버티기
-            new PlayerDamageUpgrade(),                              // 공격력 증가
-            new DoubleDamageHalfSpeedUpgrade(),                     // 공격력 두배 + 칼 회전 속도 절반
-            new DoubleDamageHalfMaxHPUpgrade(),                     // 공격력 두배 + 최대 체력 반토막
-            new IncreaseKnockbackForceUpgrade(),                    // 적 넉백 거리 증가
-            new FreeExpUpgrade(),                                   // 경험치 주기
-            new SwordRotateDirectionUpgrade(),                      // 칼 회전 방향 변경
-            new ExtraExpUpgrade(),                                  // 추가 경험치
-            new UnlockIceEffectUpgrade(),                           // 얼음 속성 잠금 해제
-            new UnlockFireEffectUpgrade(),                          // 불 속성 잠금 해제
-            new PlayerSpeedUpgrade(),                               // 플레이어 이동속도 증가
-            new PlayerAndWeaponSpeedUpgrade(),                      // 이동 속도와 칼 회전 속도 증가
-            new IncreasePlayerSpeedAndDecreaseMaxHPUpgrade(),       // 이동 속도 증가 + 최대 체력 감소
-            new DecreasePlayerSpeedAndIncreaseMaxHPUpgrade(),       // 이동 속도 감소 + 최대 체력 증가
-            new AddSwordUpgrade(),                                  // 칼 1개 추가
-            new AddSwordsAndDecreaseDamageUpgrade(),                // 칼 2개 추가 + 개별 데미지 감소
-            new WeaponRotationSpeedUpgrade(),                       // 칼 회전 속도 증가
-            new WeaponDistanceUpgrade(0.5f, true),                  // 칼 회전 폭 증가
-            new WeaponDistanceUpgrade(-0.5f, false),                // 칼 회전 폭 감소
-            new UnlockDashSkillUpgrade(),                           // 대쉬 스킬 잠금해제
-            new DashSkillDistanceUpgrade(),                         // 대쉬 스킬 이동 거리 증가
-            new DashSkillCooldownUpgrade(),                         // 대쉬 스킬 쿨타임 감소 
+            new CurrentHPUpgrade(),                                 // 1. 현제 체력 증가
+            new MaxHPUpgrade(),                                     // 2. 최대 체력 증가
+            new HPRegenerationUpgrade(),                            // 3. 체력 재생 시작
+            new IncreaseHPRegenerationUpgrade(),                    // 4. 체력 재생량 증가
+            new VampiricUpdate(),                                   // 5. 피흡 시작
+            new VampiricValueUpdate(),                              // 6. 피흡량 증가
+            new IncreaseMaxHPDecreaseDamageUpgrade(),               // 7. 최대 체력 증가 + 공격력 감소
+            new DecreaseMaxHPIncreaseDamageUpgrade(),               // 8. 최대 체력 감소 + 공격력 증가
+            new CanSurviveOnceUpgrade(),                            // 9. 체력 1로 한번 버티기
+            new PlayerDamageUpgrade(),                              // 10. 공격력 증가
+            new DoubleDamageHalfSpeedUpgrade(),                     // 11. 공격력 두배 + 칼 회전 속도 절반
+            new DoubleDamageHalfMaxHPUpgrade(),                     // 12. 공격력 두배 + 최대 체력 반토막
+            new IncreaseKnockbackForceUpgrade(),                    // 13. 적 넉백 거리 증가
+            new FreeExpUpgrade(),                                   // 14. 경험치 주기
+            new SwordRotateDirectionUpgrade(),                      // 15. 칼 회전 방향 변경
+            new ExtraExpUpgrade(),                                  // 16. 추가 경험치
+            new UnlockIceEffectUpgrade(),                           // 17. 얼음 속성 잠금 해제
+            new UnlockFireEffectUpgrade(),                          // 18. 불 속성 잠금 해제
+            new PlayerSpeedUpgrade(),                               // 19. 플레이어 이동속도 증가
+            new PlayerAndWeaponSpeedUpgrade(),                      // 20. 이동 속도와 칼 회전 속도 증가
+            new IncreasePlayerSpeedAndDecreaseMaxHPUpgrade(),       // 21. 이동 속도 증가 + 최대 체력 감소
+            new DecreasePlayerSpeedAndIncreaseMaxHPUpgrade(),       // 22. 이동 속도 감소 + 최대 체력 증가
+            new AddSwordUpgrade(),                                  // 23. 칼 1개 추가
+            new AddSwordsAndDecreaseDamageUpgrade(),                // 24. 칼 2개 추가 + 개별 데미지 감소
+            new WeaponRotationSpeedUpgrade(),                       // 25. 칼 회전 속도 증가
+            new WeaponDistanceUpgrade(0.5f, true),                  // 26. 칼 회전 폭 증가
+            new WeaponDistanceUpgrade(-0.5f, false),                // 27. 칼 회전 폭 감소
+            new UnlockDashSkillUpgrade(),                           // 28. 대쉬 스킬 잠금해제
+            new DashSkillDistanceUpgrade(),                         // 29. 대쉬 스킬 이동 거리 증가
+            new DashSkillCooldownUpgrade(),                         // 30. 대쉬 스킬 쿨타임 감소 
         };
     }
 

@@ -45,34 +45,4 @@ public class BossStatsManager : MonoBehaviour
     {
         return bossStatsDictionary.TryGetValue(bossName, out BossStats stats) ? stats : null;
     }
-
-    //public float GetAttackPower(string bossName)
-    //{
-    //    return GetBossStats(bossName)?.AttackPower ?? 0f;
-    //}
-
-    //public float GetHP(string bossName)
-    //{
-    //    return GetBossStats(bossName)?.HP ?? 0f;
-    //}
-
-    //public float GetMoveSpeed(string bossName)
-    //{
-    //    return GetBossStats(bossName)?.MoveSpeed ?? 0f;
-    //}
-
-    //public float GetAttackSpeed(string bossName)
-    //{
-    //    return GetBossStats(bossName)?.AttackSpeed ?? 0f;
-    //}
-
-    //public float GetMinChaseDistance(string bossName)
-    //{
-    //    return GetBossStats(bossName)?.MinChaseDistance ?? 0f;
-    //}
-
-    //public float GetMaxChaseDistance(string bossName)
-    //{
-    //    return GetBossStats(bossName)?.MaxChaseDistance ?? 0f;
-    //}
 }

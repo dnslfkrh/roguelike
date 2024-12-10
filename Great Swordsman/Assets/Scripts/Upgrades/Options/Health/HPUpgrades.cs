@@ -62,7 +62,7 @@ namespace Upgrades.Health
 
         public void Apply(PlayerComponents components)
         {
-            components.PlayerHP.ChangeVampiricValue();
+            components.PlayerHP.ChangeVampiricValue(-5);
         }
     }
 

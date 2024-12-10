@@ -27,12 +27,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Info")]
     public float gameTime;
-    public float maxGameTime = 600;
+    public float maxGameTime = 60;
 
     [Header("Player Info")]
     public int level;
     public float exp = 0;
-    public int[] nextExp = { 3, 3, 3, 5, 5, 5, 5, 5, 5, 5 };
+    public int[] nextExp = { 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 }; // Å×½ºÆ®
 
     public static GameManager Instance
     {

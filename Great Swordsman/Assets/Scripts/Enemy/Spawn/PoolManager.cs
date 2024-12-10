@@ -20,7 +20,6 @@ public class PoolManager : MonoBehaviour
     {
         if (prefabs == null || prefabs.Length == 0)
         {
-            Debug.LogWarning("No prefabs assigned to PoolManager");
             return;
         }
 
@@ -35,7 +34,6 @@ public class PoolManager : MonoBehaviour
     {
         if (pools == null || index < 0 || index >= pools.Length)
         {
-            Debug.LogError($"Invalid pool index: {index}");
             return null;
         }
 
@@ -54,7 +52,6 @@ public class PoolManager : MonoBehaviour
         {
             if (prefabs[index] == null)
             {
-                Debug.LogError($"Prefab at index {index} is null");
                 return null;
             }
 

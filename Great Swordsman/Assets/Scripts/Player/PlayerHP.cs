@@ -158,9 +158,9 @@ public class PlayerHP : MonoBehaviour
         }
     }
 
-    public void ChangeVampiricValue()
+    public void ChangeVampiricValue(float value)
     {
-        vampiricValue -= 5;
+        vampiricValue += value;
     }
 
     public float GetCurrentHealth() => currentHP;
