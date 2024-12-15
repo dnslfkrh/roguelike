@@ -1,4 +1,4 @@
-# Great Swordman
+# Great Swordsman
 뱀서류 로그라이크 게임
 
 ### Editor Version
