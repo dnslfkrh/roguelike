@@ -6,5 +6,5 @@
 
 ### 플레이 영상
 ```
-https://youtu.be/xJ1a2v_0bb0
+https://youtu.be/hzBvusvD_N4
 ```
